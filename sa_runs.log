@@ -1,0 +1,139 @@
+Wed May  6 10:25:51 +07 2026
+=== SA-SPEA2 START ===
+[vn30/sa_spea2] run 1/30: t=8.31s profit=1979728.55 dn=1 gn=1
+[vn30/sa_spea2] run 2/30: t=8.23s profit=1932520.64 dn=1 gn=1
+[vn30/sa_spea2] run 3/30: t=8.52s profit=2032348.42 dn=2 gn=5
+[vn30/sa_spea2] run 4/30: t=8.79s profit=1927511.38 dn=2 gn=5
+[vn30/sa_spea2] run 5/30: t=8.24s profit=1993274.16 dn=1 gn=1
+[vn30/sa_spea2] run 6/30: t=8.07s profit=2011005.33 dn=1 gn=1
+[vn30/sa_spea2] run 7/30: t=8.17s profit=1930847.61 dn=1 gn=1
+[vn30/sa_spea2] run 8/30: t=8.07s profit=1907434.84 dn=1 gn=1
+[vn30/sa_spea2] run 9/30: t=8.06s profit=2014525.07 dn=1 gn=1
+[vn30/sa_spea2] run 10/30: t=7.86s profit=2007617.01 dn=1 gn=1
+[vn30/sa_spea2] run 11/30: t=8.45s profit=1989053.11 dn=1 gn=1
+[vn30/sa_spea2] run 12/30: t=8.99s profit=1896949.21 dn=2 gn=2
+[vn30/sa_spea2] run 13/30: t=8.47s profit=1815109.27 dn=1 gn=1
+[vn30/sa_spea2] run 14/30: t=8.41s profit=2006546.68 dn=1 gn=1
+[vn30/sa_spea2] run 15/30: t=14.10s profit=1994580.32 dn=2 gn=59
+[vn30/sa_spea2] run 16/30: t=7.88s profit=2011713.86 dn=1 gn=1
+[vn30/sa_spea2] run 17/30: t=7.96s profit=1896745.19 dn=1 gn=1
+[vn30/sa_spea2] run 18/30: t=7.96s profit=2026641.58 dn=1 gn=1
+[vn30/sa_spea2] run 19/30: t=8.41s profit=1945572.26 dn=2 gn=7
+[vn30/sa_spea2] run 20/30: t=7.97s profit=2015508.32 dn=2 gn=2
+[vn30/sa_spea2] run 21/30: t=7.89s profit=2017668.01 dn=1 gn=1
+[vn30/sa_spea2] run 22/30: t=10.61s profit=2023848.86 dn=2 gn=18
+[vn30/sa_spea2] run 23/30: t=8.36s profit=1984391.25 dn=1 gn=1
+[vn30/sa_spea2] run 24/30: t=8.55s profit=1982665.39 dn=1 gn=1
+[vn30/sa_spea2] run 25/30: t=8.41s profit=2013857.51 dn=1 gn=1
+[vn30/sa_spea2] run 26/30: t=8.62s profit=1976817.83 dn=2 gn=4
+[vn30/sa_spea2] run 27/30: t=8.35s profit=1998349.25 dn=1 gn=1
+[vn30/sa_spea2] run 28/30: t=8.21s profit=1998457.82 dn=1 gn=1
+[vn30/sa_spea2] run 29/30: t=7.86s profit=1952025.71 dn=1 gn=1
+[vn30/sa_spea2] run 30/30: t=8.59s profit=1527803.11 dn=2 gn=8
+
+[vn30/sa_spea2] wrote sa_spea2_results_vn30.json
+
+[hnx30/sa_spea2] run 1/30: t=8.28s profit=3430177.67 dn=1 gn=1
+[hnx30/sa_spea2] run 2/30: t=8.09s profit=3287370.22 dn=1 gn=1
+[hnx30/sa_spea2] run 3/30: t=8.05s profit=3534813.33 dn=1 gn=1
+[hnx30/sa_spea2] run 4/30: t=8.04s profit=3541342.61 dn=1 gn=1
+[hnx30/sa_spea2] run 5/30: t=8.50s profit=2993064.66 dn=1 gn=1
+[hnx30/sa_spea2] run 6/30: t=8.67s profit=3405089.97 dn=1 gn=1
+[hnx30/sa_spea2] run 7/30: t=8.21s profit=3267095.17 dn=1 gn=1
+[hnx30/sa_spea2] run 8/30: t=8.21s profit=3456483.23 dn=1 gn=1
+[hnx30/sa_spea2] run 9/30: t=8.03s profit=3532627.34 dn=1 gn=1
+[hnx30/sa_spea2] run 10/30: t=8.45s profit=3452064.55 dn=1 gn=1
+[hnx30/sa_spea2] run 11/30: t=8.11s profit=3348883.33 dn=1 gn=1
+[hnx30/sa_spea2] run 12/30: t=8.28s profit=3656148.83 dn=1 gn=1
+[hnx30/sa_spea2] run 13/30: t=8.19s profit=3343563.73 dn=1 gn=1
+[hnx30/sa_spea2] run 14/30: t=8.24s profit=3464753.91 dn=1 gn=1
+[hnx30/sa_spea2] run 15/30: t=8.43s profit=3385765.62 dn=1 gn=1
+[hnx30/sa_spea2] run 16/30: t=8.43s profit=3373338.50 dn=1 gn=1
+[hnx30/sa_spea2] run 17/30: t=8.39s profit=3691503.39 dn=1 gn=1
+[hnx30/sa_spea2] run 18/30: t=8.12s profit=2083807.29 dn=1 gn=1
+[hnx30/sa_spea2] run 19/30: t=8.06s profit=3332680.85 dn=1 gn=1
+[hnx30/sa_spea2] run 20/30: t=8.21s profit=3328534.26 dn=1 gn=1
+[hnx30/sa_spea2] run 21/30: t=8.19s profit=3567260.25 dn=1 gn=1
+[hnx30/sa_spea2] run 22/30: t=9.82s profit=3310069.86 dn=2 gn=17
+[hnx30/sa_spea2] run 23/30: t=8.16s profit=3181634.60 dn=1 gn=1
+[hnx30/sa_spea2] run 24/30: t=8.25s profit=3315846.65 dn=1 gn=1
+[hnx30/sa_spea2] run 25/30: t=9.79s profit=3526361.93 dn=2 gn=18
+[hnx30/sa_spea2] run 26/30: t=8.21s profit=3176357.66 dn=1 gn=1
+[hnx30/sa_spea2] run 27/30: t=8.12s profit=3457046.24 dn=1 gn=1
+[hnx30/sa_spea2] run 28/30: t=8.42s profit=3437316.61 dn=2 gn=3
+[hnx30/sa_spea2] run 29/30: t=8.18s profit=3613549.21 dn=1 gn=1
+[hnx30/sa_spea2] run 30/30: t=8.10s profit=3483262.08 dn=1 gn=1
+
+[hnx30/sa_spea2] wrote sa_spea2_results_hnx30.json
+
+=== SA-MOEA/D START ===
+[vn30/sa_moead] Das-Dennis p=4 -> N=70 weight vectors, T=20, delta=0.9, n_r=2
+[vn30/sa_moead] run 1/30: t=6.42s profit=1948982.51 dn=1 gn=1 archive=1
+[vn30/sa_moead] run 2/30: t=6.57s profit=1878494.57 dn=1 gn=1 archive=3
+[vn30/sa_moead] run 3/30: t=6.63s profit=1949580.29 dn=2 gn=3 archive=2
+[vn30/sa_moead] run 4/30: t=6.33s profit=1884304.51 dn=1 gn=1 archive=2
+[vn30/sa_moead] run 5/30: t=6.37s profit=1995387.67 dn=1 gn=1 archive=2
+[vn30/sa_moead] run 6/30: t=6.40s profit=1941958.88 dn=1 gn=1 archive=4
+[vn30/sa_moead] run 7/30: t=6.34s profit=1972286.11 dn=1 gn=1 archive=7
+[vn30/sa_moead] run 8/30: t=7.03s profit=1896392.83 dn=2 gn=9 archive=3
+[vn30/sa_moead] run 9/30: t=6.51s profit=1885161.67 dn=2 gn=3 archive=7
+[vn30/sa_moead] run 10/30: t=6.36s profit=2028019.34 dn=1 gn=1 archive=10
+[vn30/sa_moead] run 11/30: t=9.31s profit=2007424.18 dn=2 gn=38 archive=6
+[vn30/sa_moead] run 12/30: t=6.32s profit=1824560.71 dn=1 gn=1 archive=3
+[vn30/sa_moead] run 13/30: t=6.40s profit=1857357.16 dn=1 gn=1 archive=9
+[vn30/sa_moead] run 14/30: t=6.43s profit=1948026.35 dn=1 gn=1 archive=1
+[vn30/sa_moead] run 15/30: t=6.45s profit=1923605.32 dn=1 gn=1 archive=11
+[vn30/sa_moead] run 16/30: t=6.94s profit=1968020.68 dn=2 gn=9 archive=10
+[vn30/sa_moead] run 17/30: t=6.75s profit=1749806.18 dn=1 gn=1 archive=2
+[vn30/sa_moead] run 18/30: t=9.21s profit=1971366.01 dn=3 gn=35 archive=3
+[vn30/sa_moead] run 19/30: t=6.34s profit=1943837.27 dn=2 gn=2 archive=5
+[vn30/sa_moead] run 20/30: t=6.38s profit=1928256.18 dn=1 gn=1 archive=6
+[vn30/sa_moead] run 21/30: t=6.51s profit=1979799.59 dn=1 gn=1 archive=1
+[vn30/sa_moead] run 22/30: t=6.33s profit=1921292.76 dn=1 gn=1 archive=5
+[vn30/sa_moead] run 23/30: t=6.34s profit=1875497.62 dn=1 gn=1 archive=4
+[vn30/sa_moead] run 24/30: t=7.17s profit=1941261.18 dn=2 gn=12 archive=10
+[vn30/sa_moead] run 25/30: t=6.37s profit=1939459.99 dn=1 gn=1 archive=2
+[vn30/sa_moead] run 26/30: t=6.98s profit=1990722.60 dn=2 gn=10 archive=2
+[vn30/sa_moead] run 27/30: t=6.45s profit=1930458.34 dn=1 gn=1 archive=2
+[vn30/sa_moead] run 28/30: t=7.17s profit=1941086.49 dn=2 gn=11 archive=2
+[vn30/sa_moead] run 29/30: t=6.62s profit=1883325.39 dn=1 gn=1 archive=10
+[vn30/sa_moead] run 30/30: t=6.61s profit=1949118.71 dn=1 gn=1 archive=1
+
+[vn30/sa_moead] wrote sa_moead_results_vn30.json
+
+[hnx30/sa_moead] Das-Dennis p=4 -> N=70 weight vectors, T=20, delta=0.9, n_r=2
+[hnx30/sa_moead] run 1/30: t=6.57s profit=3287825.20 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 2/30: t=6.86s profit=3085012.87 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 3/30: t=6.92s profit=2849431.85 dn=1 gn=1 archive=4
+[hnx30/sa_moead] run 4/30: t=6.59s profit=3180774.73 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 5/30: t=6.58s profit=3214923.36 dn=1 gn=1 archive=1
+[hnx30/sa_moead] run 6/30: t=7.79s profit=2874330.16 dn=2 gn=15 archive=2
+[hnx30/sa_moead] run 7/30: t=6.57s profit=3318781.28 dn=1 gn=1 archive=1
+[hnx30/sa_moead] run 8/30: t=6.52s profit=3195592.72 dn=1 gn=1 archive=3
+[hnx30/sa_moead] run 9/30: t=6.87s profit=2894515.17 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 10/30: t=6.74s profit=2867119.76 dn=1 gn=1 archive=4
+[hnx30/sa_moead] run 11/30: t=6.59s profit=2931678.77 dn=1 gn=1 archive=1
+[hnx30/sa_moead] run 12/30: t=6.59s profit=2851185.16 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 13/30: t=7.06s profit=3247010.87 dn=2 gn=8 archive=2
+[hnx30/sa_moead] run 14/30: t=6.61s profit=2702123.56 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 15/30: t=6.59s profit=2899667.65 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 16/30: t=6.73s profit=3102310.94 dn=1 gn=1 archive=6
+[hnx30/sa_moead] run 17/30: t=6.75s profit=3182349.99 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 18/30: t=6.91s profit=3452649.96 dn=1 gn=1 archive=8
+[hnx30/sa_moead] run 19/30: t=7.15s profit=3203944.00 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 20/30: t=6.80s profit=2700366.74 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 21/30: t=6.91s profit=3199909.99 dn=1 gn=1 archive=3
+[hnx30/sa_moead] run 22/30: t=6.79s profit=3129420.64 dn=1 gn=1 archive=3
+[hnx30/sa_moead] run 23/30: t=6.49s profit=2939227.41 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 24/30: t=6.72s profit=2902326.16 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 25/30: t=6.71s profit=3158295.77 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 26/30: t=6.83s profit=3094322.04 dn=1 gn=1 archive=3
+[hnx30/sa_moead] run 27/30: t=7.07s profit=2921138.63 dn=1 gn=1 archive=8
+[hnx30/sa_moead] run 28/30: t=6.66s profit=2870995.47 dn=1 gn=1 archive=6
+[hnx30/sa_moead] run 29/30: t=6.59s profit=3447319.92 dn=1 gn=1 archive=2
+[hnx30/sa_moead] run 30/30: t=6.63s profit=3300213.30 dn=1 gn=1 archive=1
+
+[hnx30/sa_moead] wrote sa_moead_results_hnx30.json
+
+=== ALL SA DONE ===
+Wed May  6 10:41:13 +07 2026

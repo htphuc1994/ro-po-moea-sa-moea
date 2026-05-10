@@ -1,0 +1,490 @@
+
+==============================================================================
+ VN30
+==============================================================================
+  GA          : loaded from ga_results_vn30.json
+  NSGA-II     : loaded from nsga_ii_results_vn30.json
+  HSG         : loaded from hsg_results_vn30.json
+  SPEA2       : loaded from spea2_results_vn30.json
+  SA-SPEA2    : loaded from sa_spea2_results_vn30.json
+  NSGA-III    : loaded from nsga3_results_vn30.json
+  SA-NSGA-III : loaded from sa_nsga3_results_vn30.json
+  MOEA/D      : loaded from moead_results_vn30.json
+  SA-MOEA/D   : loaded from sa_moead_results_vn30.json
+
+Equal-weight buy-and-hold (deterministic):
+  top-K=20 :  terminal = 1000508.71 kVND
+  all : terminal = 959143.72 kVND
+
+=== Profit / Terminal cash ===
+  GA      : mean=1.031e+06, median=1.055e+06, sd=6.605e+04
+  NSGA-II : mean=1.951e+06, median=1.957e+06, sd=3.158e+04
+  HSG     : mean=1.942e+06, median=1.941e+06, sd=4.46e+04
+  SPEA2   : mean=1.995e+06, median=1.993e+06, sd=2.993e+04
+  SA-SPEA2: mean=1.96e+06, median=1.991e+06, sd=9.561e+04
+  NSGA-III: mean=2.007e+06, median=2.006e+06, sd=2.151e+04
+  SA-NSGA-III: mean=1.998e+06, median=2.001e+06, sd=3.193e+04
+  MOEA/D  : mean=1.92e+06, median=1.923e+06, sd=6.116e+04
+  SA-MOEA/D: mean=1.928e+06, median=1.941e+06, sd=5.725e+04
+  Friedman chi2=148.356, p=4.319e-28
+  Pairwise (Holm-corrected):
+    GA       vs NSGA-II   W=0.0  p_raw=1.86e-09  p_holm=6.71e-08  -> Reject H0  dz=-11.680  CI=[-9.5e+05, -8.95e+05]
+    GA       vs HSG       W=0.0  p_raw=1.86e-09  p_holm=6.52e-08  -> Reject H0  dz=-10.801  CI=[-9.41e+05, -8.82e+05]
+    GA       vs SPEA2     W=0.0  p_raw=1.86e-09  p_holm=6.33e-08  -> Reject H0  dz=-14.249  CI=[-9.88e+05, -9.41e+05]
+    GA       vs SA-SPEA2  W=0.0  p_raw=1.86e-09  p_holm=6.15e-08  -> Reject H0  dz=-7.692  CI=[-9.68e+05, -8.84e+05]
+    GA       vs NSGA-III  W=0.0  p_raw=1.86e-09  p_holm=5.96e-08  -> Reject H0  dz=-14.052  CI=[-1e+06, -9.54e+05]
+    GA       vs SA-NSGA-III  W=0.0  p_raw=1.86e-09  p_holm=5.77e-08  -> Reject H0  dz=-12.463  CI=[-9.96e+05, -9.42e+05]
+    GA       vs MOEA/D    W=0.0  p_raw=1.86e-09  p_holm=5.59e-08  -> Reject H0  dz=-9.584  CI=[-9.22e+05, -8.56e+05]
+    GA       vs SA-MOEA/D  W=0.0  p_raw=1.86e-09  p_holm=5.4e-08  -> Reject H0  dz=-10.246  CI=[-9.28e+05, -8.67e+05]
+    NSGA-II  vs HSG       W=204.0  p_raw=0.57  p_holm=1  -> n.s.  dz=0.185  CI=[-8.4e+03, 2.9e+04]
+    NSGA-II  vs SPEA2     W=27.0  p_raw=2.35e-06  p_holm=4.46e-05  -> Reject H0  dz=-1.092  CI=[-5.7e+04, -2.93e+04]
+    NSGA-II  vs SA-SPEA2  W=139.0  p_raw=0.0549  p_holm=0.604  -> n.s.  dz=-0.099  CI=[-3.58e+04, 2.58e+04]
+    NSGA-II  vs NSGA-III  W=5.0  p_raw=1.86e-08  p_holm=5.03e-07  -> Reject H0  dz=-1.472  CI=[-6.93e+04, -4.28e+04]
+    NSGA-II  vs SA-NSGA-III  W=32.0  p_raw=5.14e-06  p_holm=9.26e-05  -> Reject H0  dz=-0.964  CI=[-6.42e+04, -3e+04]
+    NSGA-II  vs MOEA/D    W=129.0  p_raw=0.0327  p_holm=0.393  -> n.s.  dz=0.424  CI=[5.83e+03, 5.72e+04]
+    NSGA-II  vs SA-MOEA/D  W=155.0  p_raw=0.114  p_holm=0.799  -> n.s.  dz=0.324  CI=[-1.16e+03, 4.82e+04]
+    HSG      vs SPEA2     W=27.0  p_raw=2.35e-06  p_holm=4.7e-05  -> Reject H0  dz=-1.073  CI=[-7.05e+04, -3.6e+04]
+    HSG      vs SA-SPEA2  W=117.0  p_raw=0.0164  p_holm=0.23  -> n.s.  dz=-0.177  CI=[-5.07e+04, 2.27e+04]
+    HSG      vs NSGA-III  W=4.0  p_raw=1.3e-08  p_holm=3.65e-07  -> Reject H0  dz=-1.385  CI=[-8.26e+04, -4.93e+04]
+    HSG      vs SA-NSGA-III  W=48.0  p_raw=4.41e-05  p_holm=0.000749  -> Reject H0  dz=-0.894  CI=[-7.93e+04, -3.45e+04]
+    HSG      vs MOEA/D    W=177.0  p_raw=0.262  p_holm=1  -> n.s.  dz=0.258  CI=[-7.16e+03, 5.09e+04]
+    HSG      vs SA-MOEA/D  W=177.0  p_raw=0.262  p_holm=1  -> n.s.  dz=0.195  CI=[-1.03e+04, 3.62e+04]
+    SPEA2    vs SA-SPEA2  W=153.0  p_raw=0.105  p_holm=0.839  -> n.s.  dz=0.355  CI=[6.32e+03, 7.18e+04]
+    SPEA2    vs NSGA-III  W=150.0  p_raw=0.0919  p_holm=0.919  -> n.s.  dz=-0.321  CI=[-2.64e+04, 1.06e+03]
+    SPEA2    vs SA-NSGA-III  W=208.0  p_raw=0.626  p_holm=1  -> n.s.  dz=-0.082  CI=[-2.01e+04, 1.24e+04]
+    SPEA2    vs MOEA/D    W=20.0  p_raw=6.91e-07  p_holm=1.59e-05  -> Reject H0  dz=1.133  CI=[5.15e+04, 9.78e+04]
+    SPEA2    vs SA-MOEA/D  W=15.0  p_raw=2.55e-07  p_holm=6.12e-06  -> Reject H0  dz=1.026  CI=[4.52e+04, 9.01e+04]
+    SA-SPEA2 vs NSGA-III  W=117.0  p_raw=0.0164  p_holm=0.214  -> n.s.  dz=-0.457  CI=[-8.77e+04, -1.68e+04]
+    SA-SPEA2 vs SA-NSGA-III  W=153.0  p_raw=0.105  p_holm=0.944  -> n.s.  dz=-0.348  CI=[-8.15e+04, -5.6e+03]
+    SA-SPEA2 vs MOEA/D    W=102.0  p_raw=0.00619  p_holm=0.0929  -> n.s.  dz=0.401  CI=[3.17e+03, 7.27e+04]
+    SA-SPEA2 vs SA-MOEA/D  W=68.0  p_raw=0.00038  p_holm=0.00608  -> Reject H0  dz=0.326  CI=[-7.35e+03, 6.03e+04]
+    NSGA-III vs SA-NSGA-III  W=165.0  p_raw=0.171  p_holm=1  -> n.s.  dz=0.234  CI=[-4.35e+03, 2.19e+04]
+    NSGA-III vs MOEA/D    W=12.0  p_raw=1.3e-07  p_holm=3.39e-06  -> Reject H0  dz=1.303  CI=[6.38e+04, 1.11e+05]
+    NSGA-III vs SA-MOEA/D  W=13.0  p_raw=1.64e-07  p_holm=4.1e-06  -> Reject H0  dz=1.266  CI=[5.77e+04, 1.01e+05]
+    SA-NSGA-III vs MOEA/D    W=21.0  p_raw=8.33e-07  p_holm=1.83e-05  -> Reject H0  dz=1.159  CI=[5.48e+04, 1.02e+05]
+    SA-NSGA-III vs SA-MOEA/D  W=23.0  p_raw=1.19e-06  p_holm=2.5e-05  -> Reject H0  dz=1.069  CI=[4.74e+04, 9.3e+04]
+    MOEA/D   vs SA-MOEA/D  W=209.0  p_raw=0.641  p_holm=0.641  -> n.s.  dz=-0.102  CI=[-3.65e+04, 2.01e+04]
+
+=== Runtime (s) ===
+  GA      : mean=7.489, median=7.343, sd=0.3443
+  NSGA-II : mean=8.503, median=7.669, sd=1.715
+  HSG     : mean=12.56, median=8.415, sd=16.49
+  SPEA2   : mean=7.367, median=7.227, sd=0.637
+  SA-SPEA2: mean=8.545, median=8.328, sd=1.167
+  NSGA-III: mean=9.015, median=8.686, sd=1.309
+  SA-NSGA-III: mean=9.858, median=9.623, sd=0.7102
+  MOEA/D  : mean=6.146, median=5.875, sd=1.11
+  SA-MOEA/D: mean=6.734, median=6.453, sd=0.7317
+  Friedman chi2=178.018, p=2.684e-34
+  Pairwise (Holm-corrected):
+    GA       vs NSGA-II   W=72.0  p_raw=0.000555  p_holm=0.00555  -> Reject H0  dz=-0.562  CI=[-1.72, -0.443]
+    GA       vs HSG       W=0.0  p_raw=1.86e-09  p_holm=6.71e-08  -> Reject H0  dz=-0.307  CI=[-11.5, -1.51]
+    GA       vs SPEA2     W=100.0  p_raw=0.00538  p_holm=0.0269  -> Reject H0  dz=0.163  CI=[-0.179, 0.347]
+    GA       vs SA-SPEA2  W=5.0  p_raw=1.86e-08  p_holm=4.28e-07  -> Reject H0  dz=-0.848  CI=[-1.56, -0.697]
+    GA       vs NSGA-III  W=2.0  p_raw=5.59e-09  p_holm=1.56e-07  -> Reject H0  dz=-1.071  CI=[-2.09, -1.11]
+    GA       vs SA-NSGA-III  W=0.0  p_raw=1.86e-09  p_holm=6.52e-08  -> Reject H0  dz=-2.929  CI=[-2.68, -2.11]
+    GA       vs MOEA/D    W=56.0  p_raw=0.000111  p_holm=0.00155  -> Reject H0  dz=1.146  CI=[0.896, 1.69]
+    GA       vs SA-MOEA/D  W=56.0  p_raw=0.000111  p_holm=0.00166  -> Reject H0  dz=0.871  CI=[0.422, 1.03]
+    NSGA-II  vs HSG       W=88.0  p_raw=0.00219  p_holm=0.0153  -> Reject H0  dz=-0.244  CI=[-10.5, -0.517]
+    NSGA-II  vs SPEA2     W=1.0  p_raw=3.73e-09  p_holm=1.12e-07  -> Reject H0  dz=0.834  CI=[0.703, 1.65]
+    NSGA-II  vs SA-SPEA2  W=165.0  p_raw=0.171  p_holm=0.512  -> n.s.  dz=-0.032  CI=[-0.48, 0.448]
+    NSGA-II  vs NSGA-III  W=124.0  p_raw=0.0248  p_holm=0.0991  -> n.s.  dz=-0.265  CI=[-1.21, 0.161]
+    NSGA-II  vs SA-NSGA-III  W=77.0  p_raw=0.000872  p_holm=0.00697  -> Reject H0  dz=-0.794  CI=[-1.9, -0.675]
+    NSGA-II  vs MOEA/D    W=43.0  p_raw=2.37e-05  p_holm=0.000402  -> Reject H0  dz=1.107  CI=[1.63, 3.15]
+    NSGA-II  vs SA-MOEA/D  W=43.0  p_raw=2.37e-05  p_holm=0.000379  -> Reject H0  dz=0.883  CI=[1.11, 2.52]
+    HSG      vs SPEA2     W=0.0  p_raw=1.86e-09  p_holm=5.96e-08  -> Reject H0  dz=0.314  CI=[1.67, 11.6]
+    HSG      vs SA-SPEA2  W=77.0  p_raw=0.000872  p_holm=0.00785  -> Reject H0  dz=0.242  CI=[0.468, 10.4]
+    HSG      vs NSGA-III  W=200.0  p_raw=0.516  p_holm=0.516  -> n.s.  dz=0.214  CI=[-0.0878, 10]
+    HSG      vs SA-NSGA-III  W=173.0  p_raw=0.229  p_holm=0.457  -> n.s.  dz=0.163  CI=[-0.783, 9.06]
+    HSG      vs MOEA/D    W=5.0  p_raw=1.86e-08  p_holm=4.1e-07  -> Reject H0  dz=0.385  CI=[2.71, 12.9]
+    HSG      vs SA-MOEA/D  W=3.0  p_raw=9.31e-09  p_holm=2.42e-07  -> Reject H0  dz=0.351  CI=[2.21, 12.3]
+    SPEA2    vs SA-SPEA2  W=0.0  p_raw=1.86e-09  p_holm=6.33e-08  -> Reject H0  dz=-1.738  CI=[-1.45, -0.976]
+    SPEA2    vs NSGA-III  W=1.0  p_raw=3.73e-09  p_holm=1.15e-07  -> Reject H0  dz=-1.345  CI=[-2.14, -1.3]
+    SPEA2    vs SA-NSGA-III  W=1.0  p_raw=3.73e-09  p_holm=1.08e-07  -> Reject H0  dz=-2.858  CI=[-2.79, -2.18]
+    SPEA2    vs MOEA/D    W=57.0  p_raw=0.000123  p_holm=0.00148  -> Reject H0  dz=0.923  CI=[0.731, 1.66]
+    SPEA2    vs SA-MOEA/D  W=60.0  p_raw=0.00017  p_holm=0.00187  -> Reject H0  dz=0.618  CI=[0.27, 0.997]
+    SA-SPEA2 vs NSGA-III  W=96.0  p_raw=0.00403  p_holm=0.0242  -> Reject H0  dz=-0.293  CI=[-1.07, 0.074]
+    SA-SPEA2 vs SA-NSGA-III  W=30.0  p_raw=3.79e-06  p_holm=7.2e-05  -> Reject H0  dz=-0.991  CI=[-1.74, -0.802]
+    SA-SPEA2 vs MOEA/D    W=21.0  p_raw=8.33e-07  p_holm=1.67e-05  -> Reject H0  dz=1.410  CI=[1.81, 3.02]
+    SA-SPEA2 vs SA-MOEA/D  W=8.0  p_raw=4.66e-08  p_holm=9.78e-07  -> Reject H0  dz=1.245  CI=[1.34, 2.37]
+    NSGA-III vs SA-NSGA-III  W=35.0  p_raw=7.99e-06  p_holm=0.000144  -> Reject H0  dz=-0.620  CI=[-1.26, -0.321]
+    NSGA-III vs MOEA/D    W=3.0  p_raw=9.31e-09  p_holm=2.24e-07  -> Reject H0  dz=1.641  CI=[2.27, 3.51]
+    NSGA-III vs SA-MOEA/D  W=3.0  p_raw=9.31e-09  p_holm=2.33e-07  -> Reject H0  dz=1.468  CI=[1.79, 2.87]
+    SA-NSGA-III vs MOEA/D    W=3.0  p_raw=9.31e-09  p_holm=2.51e-07  -> Reject H0  dz=2.699  CI=[3.2, 4.18]
+    SA-NSGA-III vs SA-MOEA/D  W=0.0  p_raw=1.86e-09  p_holm=6.15e-08  -> Reject H0  dz=2.937  CI=[2.75, 3.49]
+    MOEA/D   vs SA-MOEA/D  W=57.0  p_raw=0.000123  p_holm=0.0016  -> Reject H0  dz=-0.564  CI=[-0.952, -0.197]
+
+=== GN (generations to last pivot) ===
+  GA      : mean=2.4, median=1, sd=3.103
+  NSGA-II : mean=10.13, median=1, sd=19.03
+  HSG     : mean=11.3, median=1, sd=21.65
+  SPEA2   : mean=3.3, median=1, sd=7.221
+  SA-SPEA2: mean=4.367, median=1, sd=10.89
+  NSGA-III: mean=5.433, median=1, sd=10.48
+  SA-NSGA-III: mean=2.367, median=1, sd=4.23
+  MOEA/D  : mean=6.533, median=1, sd=15.81
+  SA-MOEA/D: mean=5.067, median=1, sd=9.225
+  Friedman chi2=9.097, p=0.3342
+  No omnibus significance -> stop
+
+=== DN (frontiers passed) ===
+  GA      : mean=1, median=1, sd=0
+  NSGA-II : mean=1.6, median=1, sd=0.855
+  HSG     : mean=1.467, median=1, sd=0.7761
+  SPEA2   : mean=1.4, median=1, sd=0.6215
+  SA-SPEA2: mean=1.3, median=1, sd=0.4661
+  NSGA-III: mean=1.533, median=1, sd=0.7303
+  SA-NSGA-III: mean=1.3, median=1, sd=0.596
+  MOEA/D  : mean=1.333, median=1, sd=0.4795
+  SA-MOEA/D: mean=1.367, median=1, sd=0.5561
+  Friedman chi2=26.392, p=0.0008996
+  Pairwise (Holm-corrected):
+    GA       vs NSGA-II   W=0.0  p_raw=0.00169  p_holm=0.0574  -> n.s.  dz=-0.702  CI=[-0.9, -0.333]
+    GA       vs HSG       W=0.0  p_raw=0.00358  p_holm=0.107  -> n.s.  dz=-0.601  CI=[-0.767, -0.2]
+    GA       vs SPEA2     W=0.0  p_raw=0.00296  p_holm=0.0918  -> n.s.  dz=-0.644  CI=[-0.633, -0.2]
+    GA       vs SA-SPEA2  W=0.0  p_raw=0.0027  p_holm=0.0864  -> n.s.  dz=-0.644  CI=[-0.467, -0.133]
+    GA       vs NSGA-III  W=0.0  p_raw=0.00149  p_holm=0.0537  -> n.s.  dz=-0.730  CI=[-0.8, -0.3]
+    GA       vs SA-NSGA-III  W=0.0  p_raw=0.0139  p_holm=0.388  -> n.s.  dz=-0.503  CI=[-0.533, -0.1]
+    GA       vs MOEA/D    W=0.0  p_raw=0.00157  p_holm=0.0548  -> n.s.  dz=-0.695  CI=[-0.5, -0.167]
+    GA       vs SA-MOEA/D  W=0.0  p_raw=0.00228  p_holm=0.0753  -> n.s.  dz=-0.659  CI=[-0.567, -0.2]
+    NSGA-II  vs HSG       W=13.5  p_raw=0.248  p_holm=1  -> n.s.  dz=0.212  CI=[-0.0667, 0.367]
+    NSGA-II  vs SPEA2     W=3.5  p_raw=0.0578  p_holm=1  -> n.s.  dz=0.363  CI=[0.0333, 0.4]
+    NSGA-II  vs SA-SPEA2  W=5.0  p_raw=0.0126  p_holm=0.364  -> n.s.  dz=0.503  CI=[0.1, 0.533]
+    NSGA-II  vs NSGA-III  W=13.5  p_raw=0.48  p_holm=1  -> n.s.  dz=0.128  CI=[-0.1, 0.267]
+    NSGA-II  vs SA-NSGA-III  W=8.0  p_raw=0.0385  p_holm=0.962  -> n.s.  dz=0.400  CI=[0.0667, 0.567]
+    NSGA-II  vs MOEA/D    W=20.0  p_raw=0.126  p_holm=1  -> n.s.  dz=0.263  CI=[-0.0667, 0.633]
+    NSGA-II  vs SA-MOEA/D  W=33.5  p_raw=0.221  p_holm=1  -> n.s.  dz=0.211  CI=[-0.133, 0.633]
+    HSG      vs SPEA2     W=10.5  p_raw=0.527  p_holm=1  -> n.s.  dz=0.114  CI=[-0.133, 0.267]
+    HSG      vs SA-SPEA2  W=0.0  p_raw=0.0588  p_holm=1  -> n.s.  dz=0.361  CI=[0.0333, 0.333]
+    HSG      vs NSGA-III  W=22.0  p_raw=0.527  p_holm=1  -> n.s.  dz=-0.114  CI=[-0.267, 0.133]
+    HSG      vs SA-NSGA-III  W=4.0  p_raw=0.0588  p_holm=1  -> n.s.  dz=0.361  CI=[0, 0.333]
+    HSG      vs MOEA/D    W=25.0  p_raw=0.449  p_holm=1  -> n.s.  dz=0.155  CI=[-0.133, 0.467]
+    HSG      vs SA-MOEA/D  W=39.0  p_raw=0.632  p_holm=1  -> n.s.  dz=0.104  CI=[-0.233, 0.467]
+    SPEA2    vs SA-SPEA2  W=3.0  p_raw=0.18  p_holm=1  -> n.s.  dz=0.248  CI=[-0.0333, 0.233]
+    SPEA2    vs NSGA-III  W=16.5  p_raw=0.206  p_holm=1  -> n.s.  dz=-0.233  CI=[-0.333, 0.0667]
+    SPEA2    vs SA-NSGA-III  W=12.0  p_raw=0.366  p_holm=1  -> n.s.  dz=0.165  CI=[-0.1, 0.333]
+    SPEA2    vs MOEA/D    W=45.5  p_raw=0.635  p_holm=1  -> n.s.  dz=0.081  CI=[-0.2, 0.367]
+    SPEA2    vs SA-MOEA/D  W=49.0  p_raw=0.816  p_holm=1  -> n.s.  dz=0.037  CI=[-0.267, 0.333]
+    SA-SPEA2 vs NSGA-III  W=5.0  p_raw=0.0196  p_holm=0.51  -> n.s.  dz=-0.463  CI=[-0.4, -0.0667]
+    SA-SPEA2 vs SA-NSGA-III  W=10.5  p_raw=1  p_holm=1  -> n.s.  dz=0.000  CI=[-0.167, 0.167]
+    SA-SPEA2 vs MOEA/D    W=30.0  p_raw=0.763  p_holm=1  -> n.s.  dz=-0.054  CI=[-0.233, 0.2]
+    SA-SPEA2 vs SA-MOEA/D  W=39.0  p_raw=0.617  p_holm=1  -> n.s.  dz=-0.090  CI=[-0.333, 0.2]
+    NSGA-III vs SA-NSGA-III  W=5.0  p_raw=0.0196  p_holm=0.53  -> n.s.  dz=0.463  CI=[0.0667, 0.4]
+    NSGA-III vs MOEA/D    W=39.0  p_raw=0.204  p_holm=1  -> n.s.  dz=0.226  CI=[-0.1, 0.533]
+    NSGA-III vs SA-MOEA/D  W=43.5  p_raw=0.325  p_holm=1  -> n.s.  dz=0.175  CI=[-0.167, 0.5]
+    SA-NSGA-III vs MOEA/D    W=31.0  p_raw=0.85  p_holm=1  -> n.s.  dz=-0.044  CI=[-0.3, 0.233]
+    SA-NSGA-III vs SA-MOEA/D  W=40.5  p_raw=0.712  p_holm=1  -> n.s.  dz=-0.077  CI=[-0.367, 0.233]
+    MOEA/D   vs SA-MOEA/D  W=20.0  p_raw=0.739  p_holm=1  -> n.s.  dz=-0.060  CI=[-0.233, 0.167]
+
+=== Coverage of two sets CS(A->B) ===
+  A            ->B             CS
+  GA           -> NSGA-II       0.000
+  GA           -> HSG           0.000
+  GA           -> SPEA2         0.000
+  GA           -> SA-SPEA2      0.000
+  GA           -> NSGA-III      0.000
+  GA           -> SA-NSGA-III   0.000
+  GA           -> MOEA/D        0.000
+  GA           -> SA-MOEA/D     0.000
+  NSGA-II      -> GA            0.000
+  NSGA-II      -> HSG           0.100
+  NSGA-II      -> SPEA2         0.067
+  NSGA-II      -> SA-SPEA2      0.133
+  NSGA-II      -> NSGA-III      0.000
+  NSGA-II      -> SA-NSGA-III   0.067
+  NSGA-II      -> MOEA/D        0.100
+  NSGA-II      -> SA-MOEA/D     0.167
+  HSG          -> GA            0.000
+  HSG          -> NSGA-II       0.133
+  HSG          -> SPEA2         0.033
+  HSG          -> SA-SPEA2      0.067
+  HSG          -> NSGA-III      0.033
+  HSG          -> SA-NSGA-III   0.100
+  HSG          -> MOEA/D        0.067
+  HSG          -> SA-MOEA/D     0.233
+  SPEA2        -> GA            0.000
+  SPEA2        -> NSGA-II       0.100
+  SPEA2        -> HSG           0.200
+  SPEA2        -> SA-SPEA2      0.200
+  SPEA2        -> NSGA-III      0.067
+  SPEA2        -> SA-NSGA-III   0.100
+  SPEA2        -> MOEA/D        0.167
+  SPEA2        -> SA-MOEA/D     0.167
+  SA-SPEA2     -> GA            0.000
+  SA-SPEA2     -> NSGA-II       0.067
+  SA-SPEA2     -> HSG           0.233
+  SA-SPEA2     -> SPEA2         0.133
+  SA-SPEA2     -> NSGA-III      0.133
+  SA-SPEA2     -> SA-NSGA-III   0.133
+  SA-SPEA2     -> MOEA/D        0.167
+  SA-SPEA2     -> SA-MOEA/D     0.167
+  NSGA-III     -> GA            0.000
+  NSGA-III     -> NSGA-II       0.067
+  NSGA-III     -> HSG           0.267
+  NSGA-III     -> SPEA2         0.100
+  NSGA-III     -> SA-SPEA2      0.167
+  NSGA-III     -> SA-NSGA-III   0.067
+  NSGA-III     -> MOEA/D        0.133
+  NSGA-III     -> SA-MOEA/D     0.133
+  SA-NSGA-III  -> GA            0.000
+  SA-NSGA-III  -> NSGA-II       0.100
+  SA-NSGA-III  -> HSG           0.167
+  SA-NSGA-III  -> SPEA2         0.067
+  SA-NSGA-III  -> SA-SPEA2      0.133
+  SA-NSGA-III  -> NSGA-III      0.133
+  SA-NSGA-III  -> MOEA/D        0.233
+  SA-NSGA-III  -> SA-MOEA/D     0.200
+  MOEA/D       -> GA            0.000
+  MOEA/D       -> NSGA-II       0.033
+  MOEA/D       -> HSG           0.133
+  MOEA/D       -> SPEA2         0.067
+  MOEA/D       -> SA-SPEA2      0.133
+  MOEA/D       -> NSGA-III      0.033
+  MOEA/D       -> SA-NSGA-III   0.033
+  MOEA/D       -> SA-MOEA/D     0.167
+  SA-MOEA/D    -> GA            0.000
+  SA-MOEA/D    -> NSGA-II       0.000
+  SA-MOEA/D    -> HSG           0.100
+  SA-MOEA/D    -> SPEA2         0.033
+  SA-MOEA/D    -> SA-SPEA2      0.067
+  SA-MOEA/D    -> NSGA-III      0.067
+  SA-MOEA/D    -> SA-NSGA-III   0.033
+  SA-MOEA/D    -> MOEA/D        0.167
+
+=== Spacing SP (lower = more uniform) ===
+  GA            SP = 0.0243
+  NSGA-II       SP = 0.0486
+  HSG           SP = 0.0624
+  SPEA2         SP = 0.0501
+  SA-SPEA2      SP = 0.1055
+  NSGA-III      SP = 0.0510
+  SA-NSGA-III   SP = 0.0702
+  MOEA/D        SP = 0.1632
+  SA-MOEA/D     SP = 0.0717
+
+==============================================================================
+ HNX30
+==============================================================================
+  GA          : loaded from ga_results_hnx30.json
+  NSGA-II     : loaded from nsga_ii_results_hnx30.json
+  HSG         : loaded from hsg_results_hnx30.json
+  SPEA2       : loaded from spea2_results_hnx30.json
+  SA-SPEA2    : loaded from sa_spea2_results_hnx30.json
+  NSGA-III    : loaded from nsga3_results_hnx30.json
+  SA-NSGA-III : loaded from sa_nsga3_results_hnx30.json
+  MOEA/D      : loaded from moead_results_hnx30.json
+  SA-MOEA/D   : loaded from sa_moead_results_hnx30.json
+
+Equal-weight buy-and-hold (deterministic):
+  top-K=20 :  terminal = 1271327.89 kVND
+  all : terminal = 1260486.04 kVND
+
+=== Profit / Terminal cash ===
+  GA      : mean=1.068e+06, median=1.055e+06, sd=4.387e+04
+  NSGA-II : mean=3.115e+06, median=3.158e+06, sd=2.142e+05
+  HSG     : mean=3.168e+06, median=3.147e+06, sd=2.316e+05
+  SPEA2   : mean=3.358e+06, median=3.402e+06, sd=1.577e+05
+  SA-SPEA2: mean=3.366e+06, median=3.418e+06, sd=2.841e+05
+  NSGA-III: mean=3.386e+06, median=3.423e+06, sd=1.744e+05
+  SA-NSGA-III: mean=3.383e+06, median=3.405e+06, sd=1.682e+05
+  MOEA/D  : mean=2.973e+06, median=3.035e+06, sd=2.704e+05
+  SA-MOEA/D: mean=3.067e+06, median=3.098e+06, sd=2.056e+05
+  Friedman chi2=150.516, p=1.531e-28
+  Pairwise (Holm-corrected):
+    GA       vs NSGA-II   W=0.0  p_raw=1.86e-09  p_holm=6.71e-08  -> Reject H0  dz=-9.018  CI=[-2.13e+06, -1.97e+06]
+    GA       vs HSG       W=0.0  p_raw=1.86e-09  p_holm=6.52e-08  -> Reject H0  dz=-9.345  CI=[-2.18e+06, -2.02e+06]
+    GA       vs SPEA2     W=0.0  p_raw=1.86e-09  p_holm=6.33e-08  -> Reject H0  dz=-14.381  CI=[-2.35e+06, -2.23e+06]
+    GA       vs SA-SPEA2  W=0.0  p_raw=1.86e-09  p_holm=6.15e-08  -> Reject H0  dz=-8.068  CI=[-2.38e+06, -2.19e+06]
+    GA       vs NSGA-III  W=0.0  p_raw=1.86e-09  p_holm=5.96e-08  -> Reject H0  dz=-13.025  CI=[-2.38e+06, -2.25e+06]
+    GA       vs SA-NSGA-III  W=0.0  p_raw=1.86e-09  p_holm=5.77e-08  -> Reject H0  dz=-13.697  CI=[-2.37e+06, -2.26e+06]
+    GA       vs MOEA/D    W=0.0  p_raw=1.86e-09  p_holm=5.59e-08  -> Reject H0  dz=-6.955  CI=[-2e+06, -1.81e+06]
+    GA       vs SA-MOEA/D  W=0.0  p_raw=1.86e-09  p_holm=5.4e-08  -> Reject H0  dz=-9.186  CI=[-2.08e+06, -1.92e+06]
+    NSGA-II  vs HSG       W=192.0  p_raw=0.416  p_holm=1  -> n.s.  dz=-0.217  CI=[-1.43e+05, 3.3e+04]
+    NSGA-II  vs SPEA2     W=40.0  p_raw=1.6e-05  p_holm=0.000288  -> Reject H0  dz=-0.986  CI=[-3.28e+05, -1.57e+05]
+    NSGA-II  vs SA-SPEA2  W=39.0  p_raw=1.4e-05  p_holm=0.000265  -> Reject H0  dz=-0.693  CI=[-3.63e+05, -1.11e+05]
+    NSGA-II  vs NSGA-III  W=34.0  p_raw=6.92e-06  p_holm=0.000138  -> Reject H0  dz=-1.084  CI=[-3.56e+05, -1.81e+05]
+    NSGA-II  vs SA-NSGA-III  W=26.0  p_raw=1.99e-06  p_holm=4.18e-05  -> Reject H0  dz=-1.020  CI=[-3.63e+05, -1.77e+05]
+    NSGA-II  vs MOEA/D    W=143.0  p_raw=0.0667  p_holm=0.733  -> n.s.  dz=0.383  CI=[1.5e+04, 2.78e+05]
+    NSGA-II  vs SA-MOEA/D  W=200.0  p_raw=0.516  p_holm=1  -> n.s.  dz=0.179  CI=[-4.17e+04, 1.44e+05]
+    HSG      vs SPEA2     W=69.0  p_raw=0.000418  p_holm=0.00586  -> Reject H0  dz=-0.765  CI=[-2.76e+05, -1.01e+05]
+    HSG      vs SA-SPEA2  W=64.0  p_raw=0.000256  p_holm=0.00384  -> Reject H0  dz=-0.524  CI=[-3.2e+05, -5.17e+04]
+    HSG      vs NSGA-III  W=76.0  p_raw=0.000798  p_holm=0.0104  -> Reject H0  dz=-0.710  CI=[-3.25e+05, -1.08e+05]
+    HSG      vs SA-NSGA-III  W=60.0  p_raw=0.00017  p_holm=0.00272  -> Reject H0  dz=-0.786  CI=[-3.11e+05, -1.22e+05]
+    HSG      vs MOEA/D    W=102.0  p_raw=0.00619  p_holm=0.0743  -> n.s.  dz=0.573  CI=[7.98e+04, 3.17e+05]
+    HSG      vs SA-MOEA/D  W=148.0  p_raw=0.0841  p_holm=0.841  -> n.s.  dz=0.341  CI=[-2.67e+03, 2.06e+05]
+    SPEA2    vs SA-SPEA2  W=190.0  p_raw=0.393  p_holm=1  -> n.s.  dz=-0.027  CI=[-1.01e+05, 1.03e+05]
+    SPEA2    vs NSGA-III  W=200.0  p_raw=0.516  p_holm=1  -> n.s.  dz=-0.129  CI=[-1.04e+05, 5.12e+04]
+    SPEA2    vs SA-NSGA-III  W=205.0  p_raw=0.584  p_holm=1  -> n.s.  dz=-0.119  CI=[-9.97e+04, 4.66e+04]
+    SPEA2    vs MOEA/D    W=9.0  p_raw=6.15e-08  p_holm=1.66e-06  -> Reject H0  dz=1.367  CI=[2.89e+05, 4.86e+05]
+    SPEA2    vs SA-MOEA/D  W=21.0  p_raw=8.33e-07  p_holm=2e-05  -> Reject H0  dz=1.317  CI=[2.13e+05, 3.69e+05]
+    SA-SPEA2 vs NSGA-III  W=226.0  p_raw=0.903  p_holm=1  -> n.s.  dz=-0.065  CI=[-1.39e+05, 8.22e+04]
+    SA-SPEA2 vs SA-NSGA-III  W=221.0  p_raw=0.824  p_holm=1  -> n.s.  dz=-0.053  CI=[-1.42e+05, 8.62e+04]
+    SA-SPEA2 vs MOEA/D    W=24.0  p_raw=1.42e-06  p_holm=3.12e-05  -> Reject H0  dz=1.080  CI=[2.65e+05, 5.2e+05]
+    SA-SPEA2 vs SA-MOEA/D  W=41.0  p_raw=1.82e-05  p_holm=0.00031  -> Reject H0  dz=0.751  CI=[1.44e+05, 4.22e+05]
+    NSGA-III vs SA-NSGA-III  W=231.0  p_raw=0.984  p_holm=0.984  -> n.s.  dz=0.013  CI=[-8.23e+04, 8.24e+04]
+    NSGA-III vs MOEA/D    W=13.0  p_raw=1.64e-07  p_holm=4.26e-06  -> Reject H0  dz=1.533  CI=[3.17e+05, 5.06e+05]
+    NSGA-III vs SA-MOEA/D  W=14.0  p_raw=2.05e-07  p_holm=5.12e-06  -> Reject H0  dz=1.380  CI=[2.39e+05, 4e+05]
+    SA-NSGA-III vs MOEA/D    W=3.0  p_raw=9.31e-09  p_holm=2.61e-07  -> Reject H0  dz=1.711  CI=[3.28e+05, 4.95e+05]
+    SA-NSGA-III vs SA-MOEA/D  W=21.0  p_raw=8.33e-07  p_holm=1.91e-05  -> Reject H0  dz=1.212  CI=[2.27e+05, 4.08e+05]
+    MOEA/D   vs SA-MOEA/D  W=161.0  p_raw=0.146  p_holm=1  -> n.s.  dz=-0.300  CI=[-2.02e+05, 1.42e+04]
+
+=== Runtime (s) ===
+  GA      : mean=7.55, median=7.501, sd=0.2224
+  NSGA-II : mean=7.941, median=7.871, sd=0.3421
+  HSG     : mean=9.168, median=8.656, sd=1.566
+  SPEA2   : mean=7.355, median=7.279, sd=0.4997
+  SA-SPEA2: mean=8.34, median=8.206, sd=0.4274
+  NSGA-III: mean=8.74, median=8.674, sd=0.3192
+  SA-NSGA-III: mean=10.08, median=9.563, sd=1.41
+  MOEA/D  : mean=6.145, median=5.825, sd=1.057
+  SA-MOEA/D: mean=6.773, median=6.727, sd=0.2574
+  Friedman chi2=207.156, p=1.982e-40
+  Pairwise (Holm-corrected):
+    GA       vs NSGA-II   W=31.0  p_raw=4.42e-06  p_holm=4.86e-05  -> Reject H0  dz=-0.868  CI=[-0.556, -0.244]
+    GA       vs HSG       W=0.0  p_raw=1.86e-09  p_holm=6.52e-08  -> Reject H0  dz=-1.029  CI=[-2.23, -1.14]
+    GA       vs SPEA2     W=58.0  p_raw=0.000137  p_holm=0.00055  -> Reject H0  dz=0.350  CI=[-0.0288, 0.358]
+    GA       vs SA-SPEA2  W=0.0  p_raw=1.86e-09  p_holm=6.33e-08  -> Reject H0  dz=-1.678  CI=[-0.967, -0.637]
+    GA       vs NSGA-III  W=0.0  p_raw=1.86e-09  p_holm=6.15e-08  -> Reject H0  dz=-2.873  CI=[-1.34, -1.05]
+    GA       vs SA-NSGA-III  W=0.0  p_raw=1.86e-09  p_holm=5.96e-08  -> Reject H0  dz=-1.867  CI=[-3.05, -2.12]
+    GA       vs MOEA/D    W=54.0  p_raw=8.86e-05  p_holm=0.00062  -> Reject H0  dz=1.300  CI=[0.975, 1.73]
+    GA       vs SA-MOEA/D  W=1.0  p_raw=3.73e-09  p_holm=8.57e-08  -> Reject H0  dz=2.306  CI=[0.654, 0.89]
+    NSGA-II  vs HSG       W=12.0  p_raw=1.3e-07  p_holm=1.96e-06  -> Reject H0  dz=-0.772  CI=[-1.84, -0.745]
+    NSGA-II  vs SPEA2     W=31.0  p_raw=4.42e-06  p_holm=4.42e-05  -> Reject H0  dz=1.045  CI=[0.378, 0.771]
+    NSGA-II  vs SA-SPEA2  W=55.0  p_raw=9.9e-05  p_holm=0.000594  -> Reject H0  dz=-0.693  CI=[-0.608, -0.204]
+    NSGA-II  vs NSGA-III  W=7.0  p_raw=3.54e-08  p_holm=5.66e-07  -> Reject H0  dz=-1.906  CI=[-0.941, -0.65]
+    NSGA-II  vs SA-NSGA-III  W=0.0  p_raw=1.86e-09  p_holm=6.71e-08  -> Reject H0  dz=-1.427  CI=[-2.71, -1.68]
+    NSGA-II  vs MOEA/D    W=29.0  p_raw=3.24e-06  p_holm=3.89e-05  -> Reject H0  dz=1.597  CI=[1.36, 2.14]
+    NSGA-II  vs SA-MOEA/D  W=0.0  p_raw=1.86e-09  p_holm=4.66e-08  -> Reject H0  dz=2.717  CI=[1.02, 1.32]
+    HSG      vs SPEA2     W=3.0  p_raw=9.31e-09  p_holm=1.77e-07  -> Reject H0  dz=1.062  CI=[1.28, 2.47]
+    HSG      vs SA-SPEA2  W=34.0  p_raw=6.92e-06  p_holm=6.23e-05  -> Reject H0  dz=0.533  CI=[0.355, 1.44]
+    HSG      vs NSGA-III  W=212.0  p_raw=0.685  p_holm=0.685  -> n.s.  dz=0.260  CI=[-0.0737, 1.07]
+    HSG      vs SA-NSGA-III  W=57.0  p_raw=0.000123  p_holm=0.000617  -> Reject H0  dz=-0.451  CI=[-1.63, -0.191]
+    HSG      vs MOEA/D    W=3.0  p_raw=9.31e-09  p_holm=1.86e-07  -> Reject H0  dz=1.677  CI=[2.4, 3.67]
+    HSG      vs SA-MOEA/D  W=0.0  p_raw=1.86e-09  p_holm=5.59e-08  -> Reject H0  dz=1.556  CI=[1.92, 2.99]
+    SPEA2    vs SA-SPEA2  W=28.0  p_raw=2.76e-06  p_holm=3.59e-05  -> Reject H0  dz=-1.451  CI=[-1.22, -0.733]
+    SPEA2    vs NSGA-III  W=1.0  p_raw=3.73e-09  p_holm=8.94e-08  -> Reject H0  dz=-2.910  CI=[-1.55, -1.21]
+    SPEA2    vs SA-NSGA-III  W=0.0  p_raw=1.86e-09  p_holm=5.03e-08  -> Reject H0  dz=-1.955  CI=[-3.25, -2.29]
+    SPEA2    vs MOEA/D    W=58.0  p_raw=0.000137  p_holm=0.000412  -> Reject H0  dz=0.994  CI=[0.748, 1.6]
+    SPEA2    vs SA-MOEA/D  W=18.0  p_raw=4.71e-07  p_holm=6.6e-06  -> Reject H0  dz=0.947  CI=[0.395, 0.827]
+    SA-SPEA2 vs NSGA-III  W=54.0  p_raw=8.86e-05  p_holm=0.000709  -> Reject H0  dz=-0.765  CI=[-0.575, -0.205]
+    SA-SPEA2 vs SA-NSGA-III  W=1.0  p_raw=3.73e-09  p_holm=8.2e-08  -> Reject H0  dz=-1.273  CI=[-2.28, -1.34]
+    SA-SPEA2 vs MOEA/D    W=4.0  p_raw=1.3e-08  p_holm=2.35e-07  -> Reject H0  dz=2.294  CI=[1.82, 2.49]
+    SA-SPEA2 vs SA-MOEA/D  W=0.0  p_raw=1.86e-09  p_holm=5.4e-08  -> Reject H0  dz=3.206  CI=[1.41, 1.75]
+    NSGA-III vs SA-NSGA-III  W=0.0  p_raw=1.86e-09  p_holm=5.77e-08  -> Reject H0  dz=-0.883  CI=[-1.92, -0.886]
+    NSGA-III vs MOEA/D    W=4.0  p_raw=1.3e-08  p_holm=2.22e-07  -> Reject H0  dz=2.561  CI=[2.2, 2.91]
+    NSGA-III vs SA-MOEA/D  W=0.0  p_raw=1.86e-09  p_holm=4.84e-08  -> Reject H0  dz=4.658  CI=[1.82, 2.12]
+    SA-NSGA-III vs MOEA/D    W=2.0  p_raw=5.59e-09  p_holm=1.17e-07  -> Reject H0  dz=2.181  CI=[3.31, 4.57]
+    SA-NSGA-III vs SA-MOEA/D  W=0.0  p_raw=1.86e-09  p_holm=5.22e-08  -> Reject H0  dz=2.271  CI=[2.87, 3.87]
+    MOEA/D   vs SA-MOEA/D  W=61.0  p_raw=0.000189  p_holm=0.000377  -> Reject H0  dz=-0.591  CI=[-0.945, -0.203]
+
+=== GN (generations to last pivot) ===
+  GA      : mean=1, median=1, sd=0
+  NSGA-II : mean=1.567, median=1, sd=2.921
+  HSG     : mean=4.533, median=1, sd=12.98
+  SPEA2   : mean=2.233, median=1, sd=5.197
+  SA-SPEA2: mean=2.167, median=1, sd=4.186
+  NSGA-III: mean=1.367, median=1, sd=2.008
+  SA-NSGA-III: mean=4.8, median=1, sd=12.18
+  MOEA/D  : mean=5.2, median=1, sd=12.99
+  SA-MOEA/D: mean=1.7, median=1, sd=2.818
+  Friedman chi2=9.918, p=0.2708
+  No omnibus significance -> stop
+
+=== DN (frontiers passed) ===
+  GA      : mean=1, median=1, sd=0
+  NSGA-II : mean=1.067, median=1, sd=0.2537
+  HSG     : mean=1.133, median=1, sd=0.3457
+  SPEA2   : mean=1.067, median=1, sd=0.2537
+  SA-SPEA2: mean=1.1, median=1, sd=0.3051
+  NSGA-III: mean=1.067, median=1, sd=0.3651
+  SA-NSGA-III: mean=1.167, median=1, sd=0.379
+  MOEA/D  : mean=1.167, median=1, sd=0.4611
+  SA-MOEA/D: mean=1.067, median=1, sd=0.2537
+  Friedman chi2=9.151, p=0.3297
+  No omnibus significance -> stop
+
+=== Coverage of two sets CS(A->B) ===
+  A            ->B             CS
+  GA           -> NSGA-II       0.000
+  GA           -> HSG           0.000
+  GA           -> SPEA2         0.000
+  GA           -> SA-SPEA2      0.000
+  GA           -> NSGA-III      0.000
+  GA           -> SA-NSGA-III   0.000
+  GA           -> MOEA/D        0.000
+  GA           -> SA-MOEA/D     0.000
+  NSGA-II      -> GA            0.000
+  NSGA-II      -> HSG           0.067
+  NSGA-II      -> SPEA2         0.067
+  NSGA-II      -> SA-SPEA2      0.033
+  NSGA-II      -> NSGA-III      0.067
+  NSGA-II      -> SA-NSGA-III   0.067
+  NSGA-II      -> MOEA/D        0.133
+  NSGA-II      -> SA-MOEA/D     0.167
+  HSG          -> GA            0.000
+  HSG          -> NSGA-II       0.167
+  HSG          -> SPEA2         0.033
+  HSG          -> SA-SPEA2      0.000
+  HSG          -> NSGA-III      0.033
+  HSG          -> SA-NSGA-III   0.033
+  HSG          -> MOEA/D        0.200
+  HSG          -> SA-MOEA/D     0.167
+  SPEA2        -> GA            0.000
+  SPEA2        -> NSGA-II       0.100
+  SPEA2        -> HSG           0.100
+  SPEA2        -> SA-SPEA2      0.067
+  SPEA2        -> NSGA-III      0.100
+  SPEA2        -> SA-NSGA-III   0.067
+  SPEA2        -> MOEA/D        0.100
+  SPEA2        -> SA-MOEA/D     0.100
+  SA-SPEA2     -> GA            0.000
+  SA-SPEA2     -> NSGA-II       0.167
+  SA-SPEA2     -> HSG           0.100
+  SA-SPEA2     -> SPEA2         0.167
+  SA-SPEA2     -> NSGA-III      0.233
+  SA-SPEA2     -> SA-NSGA-III   0.133
+  SA-SPEA2     -> MOEA/D        0.100
+  SA-SPEA2     -> SA-MOEA/D     0.133
+  NSGA-III     -> GA            0.000
+  NSGA-III     -> NSGA-II       0.133
+  NSGA-III     -> HSG           0.067
+  NSGA-III     -> SPEA2         0.167
+  NSGA-III     -> SA-SPEA2      0.033
+  NSGA-III     -> SA-NSGA-III   0.100
+  NSGA-III     -> MOEA/D        0.200
+  NSGA-III     -> SA-MOEA/D     0.100
+  SA-NSGA-III  -> GA            0.000
+  SA-NSGA-III  -> NSGA-II       0.167
+  SA-NSGA-III  -> HSG           0.133
+  SA-NSGA-III  -> SPEA2         0.133
+  SA-NSGA-III  -> SA-SPEA2      0.067
+  SA-NSGA-III  -> NSGA-III      0.267
+  SA-NSGA-III  -> MOEA/D        0.067
+  SA-NSGA-III  -> SA-MOEA/D     0.100
+  MOEA/D       -> GA            0.000
+  MOEA/D       -> NSGA-II       0.233
+  MOEA/D       -> HSG           0.067
+  MOEA/D       -> SPEA2         0.000
+  MOEA/D       -> SA-SPEA2      0.000
+  MOEA/D       -> NSGA-III      0.033
+  MOEA/D       -> SA-NSGA-III   0.067
+  MOEA/D       -> SA-MOEA/D     0.100
+  SA-MOEA/D    -> GA            0.000
+  SA-MOEA/D    -> NSGA-II       0.167
+  SA-MOEA/D    -> HSG           0.100
+  SA-MOEA/D    -> SPEA2         0.100
+  SA-MOEA/D    -> SA-SPEA2      0.000
+  SA-MOEA/D    -> NSGA-III      0.067
+  SA-MOEA/D    -> SA-NSGA-III   0.033
+  SA-MOEA/D    -> MOEA/D        0.100
+
+=== Spacing SP (lower = more uniform) ===
+  GA            SP = 0.0071
+  NSGA-II       SP = 0.0433
+  HSG           SP = 0.0354
+  SPEA2         SP = 0.0495
+  SA-SPEA2      SP = 0.0708
+  NSGA-III      SP = 0.0258
+  SA-NSGA-III   SP = 0.0539
+  MOEA/D        SP = 0.0769
+  SA-MOEA/D     SP = 0.0425

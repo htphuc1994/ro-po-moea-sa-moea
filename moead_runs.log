@@ -1,0 +1,72 @@
+Wed May  6 10:16:54 +07 2026
+=== moead.py START ===
+[vn30/moead] Das-Dennis p=4 -> N=70 weight vectors, T=20, delta=0.9, n_r=2
+[vn30/moead] run 1/30: t=5.97s profit=1982465.43 dn=1 gn=1 archive=8
+[vn30/moead] run 2/30: t=6.02s profit=1884500.05 dn=1 gn=1 archive=4
+[vn30/moead] run 3/30: t=6.03s profit=1976898.54 dn=2 gn=3 archive=5
+[vn30/moead] run 4/30: t=5.80s profit=1995010.61 dn=1 gn=1 archive=4
+[vn30/moead] run 5/30: t=5.96s profit=1904891.82 dn=1 gn=1 archive=2
+[vn30/moead] run 6/30: t=9.66s profit=1940610.00 dn=2 gn=54 archive=10
+[vn30/moead] run 7/30: t=6.00s profit=1944960.31 dn=1 gn=1 archive=5
+[vn30/moead] run 8/30: t=5.97s profit=1907786.23 dn=2 gn=4 archive=2
+[vn30/moead] run 9/30: t=5.67s profit=1918336.90 dn=1 gn=1 archive=5
+[vn30/moead] run 10/30: t=5.70s profit=1932021.44 dn=1 gn=1 archive=5
+[vn30/moead] run 11/30: t=5.67s profit=1907375.32 dn=1 gn=1 archive=3
+[vn30/moead] run 12/30: t=5.75s profit=1927066.26 dn=1 gn=1 archive=9
+[vn30/moead] run 13/30: t=5.88s profit=2008611.38 dn=1 gn=1 archive=13
+[vn30/moead] run 14/30: t=5.89s profit=1846902.96 dn=2 gn=5 archive=9
+[vn30/moead] run 15/30: t=5.96s profit=1766128.94 dn=1 gn=1 archive=4
+[vn30/moead] run 16/30: t=5.87s profit=1887964.98 dn=2 gn=2 archive=10
+[vn30/moead] run 17/30: t=5.84s profit=1839530.28 dn=1 gn=1 archive=2
+[vn30/moead] run 18/30: t=10.54s profit=1996394.46 dn=2 gn=71 archive=4
+[vn30/moead] run 19/30: t=5.90s profit=2003922.98 dn=2 gn=6 archive=1
+[vn30/moead] run 20/30: t=5.65s profit=1859783.54 dn=1 gn=1 archive=6
+[vn30/moead] run 21/30: t=6.87s profit=1939216.41 dn=2 gn=19 archive=1
+[vn30/moead] run 22/30: t=5.77s profit=2034562.14 dn=2 gn=2 archive=6
+[vn30/moead] run 23/30: t=5.71s profit=1889135.61 dn=1 gn=1 archive=4
+[vn30/moead] run 24/30: t=5.60s profit=1873212.82 dn=1 gn=1 archive=2
+[vn30/moead] run 25/30: t=5.57s profit=1904771.59 dn=1 gn=1 archive=3
+[vn30/moead] run 26/30: t=6.32s profit=1899763.15 dn=2 gn=10 archive=2
+[vn30/moead] run 27/30: t=5.66s profit=1951467.86 dn=1 gn=1 archive=2
+[vn30/moead] run 28/30: t=5.68s profit=1937758.67 dn=1 gn=1 archive=1
+[vn30/moead] run 29/30: t=5.57s profit=1941524.17 dn=1 gn=1 archive=9
+[vn30/moead] run 30/30: t=5.92s profit=1807152.18 dn=1 gn=1 archive=2
+
+[vn30/moead] wrote moead_results_vn30.json
+
+[hnx30/moead] Das-Dennis p=4 -> N=70 weight vectors, T=20, delta=0.9, n_r=2
+[hnx30/moead] run 1/30: t=5.76s profit=3236545.68 dn=1 gn=1 archive=2
+[hnx30/moead] run 2/30: t=5.76s profit=2598717.17 dn=1 gn=1 archive=4
+[hnx30/moead] run 3/30: t=7.32s profit=3278795.11 dn=2 gn=22 archive=2
+[hnx30/moead] run 4/30: t=5.87s profit=2972138.64 dn=1 gn=1 archive=5
+[hnx30/moead] run 5/30: t=5.84s profit=2678512.31 dn=1 gn=1 archive=1
+[hnx30/moead] run 6/30: t=5.81s profit=3032840.66 dn=1 gn=1 archive=6
+[hnx30/moead] run 7/30: t=5.92s profit=3330397.32 dn=1 gn=1 archive=2
+[hnx30/moead] run 8/30: t=5.72s profit=2576445.00 dn=1 gn=1 archive=2
+[hnx30/moead] run 9/30: t=5.85s profit=3431412.74 dn=1 gn=1 archive=5
+[hnx30/moead] run 10/30: t=5.91s profit=3151238.31 dn=1 gn=1 archive=3
+[hnx30/moead] run 11/30: t=5.81s profit=3108503.53 dn=1 gn=1 archive=2
+[hnx30/moead] run 12/30: t=5.92s profit=2555724.55 dn=1 gn=1 archive=2
+[hnx30/moead] run 13/30: t=9.36s profit=3128833.81 dn=2 gn=42 archive=4
+[hnx30/moead] run 14/30: t=5.92s profit=2385177.22 dn=1 gn=1 archive=2
+[hnx30/moead] run 15/30: t=6.02s profit=2965850.53 dn=1 gn=1 archive=7
+[hnx30/moead] run 16/30: t=5.85s profit=3043809.48 dn=1 gn=1 archive=4
+[hnx30/moead] run 17/30: t=5.77s profit=2934635.34 dn=1 gn=1 archive=3
+[hnx30/moead] run 18/30: t=5.72s profit=2723261.20 dn=1 gn=1 archive=2
+[hnx30/moead] run 19/30: t=5.78s profit=3231924.60 dn=1 gn=1 archive=1
+[hnx30/moead] run 20/30: t=5.65s profit=2466754.29 dn=1 gn=1 archive=4
+[hnx30/moead] run 21/30: t=5.66s profit=2660390.72 dn=1 gn=1 archive=1
+[hnx30/moead] run 22/30: t=5.70s profit=3145666.34 dn=1 gn=1 archive=2
+[hnx30/moead] run 23/30: t=5.72s profit=3107319.22 dn=1 gn=1 archive=2
+[hnx30/moead] run 24/30: t=5.88s profit=3131976.02 dn=1 gn=1 archive=2
+[hnx30/moead] run 25/30: t=10.30s profit=3030595.08 dn=3 gn=58 archive=4
+[hnx30/moead] run 26/30: t=5.91s profit=3007280.22 dn=1 gn=1 archive=4
+[hnx30/moead] run 27/30: t=5.70s profit=3202398.75 dn=1 gn=1 archive=3
+[hnx30/moead] run 28/30: t=6.45s profit=2941529.64 dn=2 gn=8 archive=2
+[hnx30/moead] run 29/30: t=5.68s profit=3036596.27 dn=1 gn=1 archive=5
+[hnx30/moead] run 30/30: t=5.79s profit=3086963.35 dn=1 gn=1 archive=2
+
+[hnx30/moead] wrote moead_results_hnx30.json
+
+=== moead.py DONE ===
+Wed May  6 10:23:08 +07 2026

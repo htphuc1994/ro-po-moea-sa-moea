@@ -1,0 +1,336 @@
+Wed May  6 09:22:24 +07 2026
+=== nsga3.py START ===
+[vn30/nsga3] 70 reference points (Das-Dennis p=4)
+[vn30/nsga3] run 1/30: t=8.87s profit=2002620.14 dn=1 gn=1 archive=1
+[vn30/nsga3] run 2/30: t=10.32s profit=2032322.26 dn=2 gn=12 archive=1
+[vn30/nsga3] run 3/30: t=15.30s profit=2032414.14 dn=3 gn=55 archive=1
+[vn30/nsga3] run 4/30: t=9.67s profit=2007171.93 dn=3 gn=8 archive=2
+[vn30/nsga3] run 5/30: t=8.68s profit=2046564.78 dn=1 gn=1 archive=6
+[vn30/nsga3] run 6/30: t=8.31s profit=2005716.18 dn=1 gn=1 archive=1
+[vn30/nsga3] run 7/30: t=8.87s profit=2022529.38 dn=1 gn=1 archive=100
+[vn30/nsga3] run 8/30: t=8.70s profit=2023562.35 dn=1 gn=1 archive=100
+[vn30/nsga3] run 9/30: t=8.73s profit=2013453.27 dn=2 gn=5 archive=18
+[vn30/nsga3] run 10/30: t=8.41s profit=1965369.17 dn=2 gn=2 archive=100
+[vn30/nsga3] run 11/30: t=8.24s profit=2008592.17 dn=1 gn=1 archive=1
+[vn30/nsga3] run 12/30: t=8.33s profit=2018559.61 dn=2 gn=3 archive=10
+[vn30/nsga3] run 13/30: t=8.20s profit=1977774.68 dn=1 gn=1 archive=4
+[vn30/nsga3] run 14/30: t=8.32s profit=2025331.76 dn=1 gn=1 archive=79
+[vn30/nsga3] run 15/30: t=10.33s profit=1995978.95 dn=2 gn=19 archive=1
+[vn30/nsga3] run 16/30: t=8.69s profit=2010368.90 dn=1 gn=1 archive=100
+[vn30/nsga3] run 17/30: t=8.70s profit=2008322.06 dn=1 gn=1 archive=1
+[vn30/nsga3] run 18/30: t=8.73s profit=2004141.04 dn=1 gn=1 archive=16
+[vn30/nsga3] run 19/30: t=8.64s profit=2001592.15 dn=2 gn=3 archive=2
+[vn30/nsga3] run 20/30: t=9.53s profit=2001142.45 dn=3 gn=13 archive=31
+[vn30/nsga3] run 21/30: t=9.30s profit=1993052.49 dn=2 gn=12 archive=1
+[vn30/nsga3] run 22/30: t=8.23s profit=2004781.30 dn=1 gn=1 archive=5
+[vn30/nsga3] run 23/30: t=8.30s profit=1962955.63 dn=1 gn=1 archive=100
+[vn30/nsga3] run 24/30: t=8.54s profit=1993482.17 dn=1 gn=1 archive=1
+[vn30/nsga3] run 25/30: t=8.61s profit=1979321.89 dn=1 gn=1 archive=100
+[vn30/nsga3] run 26/30: t=8.99s profit=1998524.67 dn=2 gn=4 archive=19
+[vn30/nsga3] run 27/30: t=8.44s profit=2030908.37 dn=1 gn=1 archive=1
+[vn30/nsga3] run 28/30: t=8.67s profit=1976148.62 dn=1 gn=1 archive=1
+[vn30/nsga3] run 29/30: t=8.60s profit=2041206.66 dn=1 gn=1 archive=1
+[vn30/nsga3] run 30/30: t=9.24s profit=2036593.99 dn=3 gn=9 archive=1
+
+Wrote nsga3_results_vn30.json
+[vn30/sa_nsga3] 70 reference points (Das-Dennis p=4)
+[vn30/sa_nsga3] run 1/30: t=10.07s profit=1994584.88 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 2/30: t=10.11s profit=1982943.05 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 3/30: t=10.18s profit=1992546.69 dn=2 gn=2 archive=1
+[vn30/sa_nsga3] run 4/30: t=10.12s profit=2004005.64 dn=2 gn=5 archive=1
+[vn30/sa_nsga3] run 5/30: t=9.42s profit=2016868.42 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 6/30: t=9.58s profit=1992947.42 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 7/30: t=9.91s profit=2024460.65 dn=1 gn=1 archive=100
+[vn30/sa_nsga3] run 8/30: t=9.43s profit=2029951.74 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 9/30: t=9.41s profit=1994469.34 dn=1 gn=1 archive=2
+[vn30/sa_nsga3] run 10/30: t=9.40s profit=2038776.24 dn=2 gn=2 archive=100
+[vn30/sa_nsga3] run 11/30: t=9.43s profit=2015757.94 dn=1 gn=1 archive=7
+[vn30/sa_nsga3] run 12/30: t=9.54s profit=1963765.02 dn=1 gn=1 archive=52
+[vn30/sa_nsga3] run 13/30: t=9.43s profit=2042091.25 dn=1 gn=1 archive=3
+[vn30/sa_nsga3] run 14/30: t=9.43s profit=2030463.56 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 15/30: t=9.90s profit=1926247.31 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 16/30: t=9.96s profit=2030553.20 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 17/30: t=9.49s profit=2002504.97 dn=1 gn=1 archive=2
+[vn30/sa_nsga3] run 18/30: t=9.66s profit=2000212.72 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 19/30: t=9.71s profit=1963859.64 dn=2 gn=2 archive=1
+[vn30/sa_nsga3] run 20/30: t=10.03s profit=1988598.49 dn=3 gn=7 archive=2
+[vn30/sa_nsga3] run 21/30: t=9.39s profit=1960888.80 dn=1 gn=1 archive=5
+[vn30/sa_nsga3] run 22/30: t=10.12s profit=1986979.42 dn=2 gn=7 archive=16
+[vn30/sa_nsga3] run 23/30: t=9.33s profit=2021088.05 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 24/30: t=9.31s profit=1997287.71 dn=1 gn=1 archive=100
+[vn30/sa_nsga3] run 25/30: t=9.43s profit=2003705.57 dn=1 gn=1 archive=44
+[vn30/sa_nsga3] run 26/30: t=9.49s profit=1913977.92 dn=1 gn=1 archive=1
+[vn30/sa_nsga3] run 27/30: t=10.29s profit=1957748.64 dn=1 gn=1 archive=88
+[vn30/sa_nsga3] run 28/30: t=10.52s profit=2009566.03 dn=1 gn=1 archive=100
+[vn30/sa_nsga3] run 29/30: t=10.54s profit=2026527.71 dn=1 gn=1 archive=100
+[vn30/sa_nsga3] run 30/30: t=13.07s profit=2040708.92 dn=3 gn=23 archive=100
+
+Wrote sa_nsga3_results_vn30.json
+[hnx30/nsga3] 70 reference points (Das-Dennis p=4)
+[hnx30/nsga3] run 1/30: t=9.30s profit=3472431.85 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 2/30: t=8.63s profit=3404798.41 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 3/30: t=8.51s profit=3221112.80 dn=1 gn=1 archive=3
+[hnx30/nsga3] run 4/30: t=8.58s profit=3372376.46 dn=1 gn=1 archive=50
+[hnx30/nsga3] run 5/30: t=8.81s profit=3488643.34 dn=1 gn=1 archive=6
+[hnx30/nsga3] run 6/30: t=8.69s profit=3431398.26 dn=1 gn=1 archive=3
+[hnx30/nsga3] run 7/30: t=8.65s profit=3394630.68 dn=1 gn=1 archive=2
+[hnx30/nsga3] run 8/30: t=9.66s profit=3353936.01 dn=3 gn=12 archive=1
+[hnx30/nsga3] run 9/30: t=8.48s profit=3509141.40 dn=1 gn=1 archive=14
+[hnx30/nsga3] run 10/30: t=8.52s profit=3547219.30 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 11/30: t=8.41s profit=3700703.67 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 12/30: t=8.63s profit=3243541.49 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 13/30: t=9.31s profit=3484118.12 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 14/30: t=8.49s profit=2984906.03 dn=1 gn=1 archive=2
+[hnx30/nsga3] run 15/30: t=8.84s profit=3443388.74 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 16/30: t=9.45s profit=3430524.32 dn=1 gn=1 archive=2
+[hnx30/nsga3] run 17/30: t=8.44s profit=3411068.70 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 18/30: t=8.75s profit=3280618.05 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 19/30: t=8.72s profit=3547762.38 dn=1 gn=1 archive=100
+[hnx30/nsga3] run 20/30: t=8.47s profit=3384889.69 dn=1 gn=1 archive=25
+[hnx30/nsga3] run 21/30: t=8.44s profit=3361346.00 dn=1 gn=1 archive=2
+[hnx30/nsga3] run 22/30: t=8.45s profit=3500151.96 dn=1 gn=1 archive=100
+[hnx30/nsga3] run 23/30: t=8.49s profit=2750549.08 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 24/30: t=8.87s profit=3415882.58 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 25/30: t=9.01s profit=3489507.78 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 26/30: t=8.86s profit=3344060.45 dn=1 gn=1 archive=1
+[hnx30/nsga3] run 27/30: t=8.74s profit=3455977.62 dn=1 gn=1 archive=3
+[hnx30/nsga3] run 28/30: t=8.50s profit=3264416.70 dn=1 gn=1 archive=2
+[hnx30/nsga3] run 29/30: t=8.71s profit=3452700.49 dn=1 gn=1 archive=2
+[hnx30/nsga3] run 30/30: t=8.78s profit=3450362.63 dn=1 gn=1 archive=10
+
+Wrote nsga3_results_hnx30.json
+[hnx30/sa_nsga3] 70 reference points (Das-Dennis p=4)
+[hnx30/sa_nsga3] run 1/30: t=9.35s profit=3562545.92 dn=1 gn=1 archive=8
+[hnx30/sa_nsga3] run 2/30: t=9.53s profit=3529138.75 dn=1 gn=1 archive=59
+[hnx30/sa_nsga3] run 3/30: t=9.58s profit=3491896.09 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 4/30: t=9.35s profit=3493481.72 dn=1 gn=1 archive=21
+[hnx30/sa_nsga3] run 5/30: t=9.95s profit=3057344.85 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 6/30: t=9.82s profit=3460185.16 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 7/30: t=10.17s profit=3324463.47 dn=1 gn=1 archive=10
+[hnx30/sa_nsga3] run 8/30: t=9.99s profit=3215634.27 dn=2 gn=2 archive=1
+[hnx30/sa_nsga3] run 9/30: t=12.24s profit=3741355.94 dn=2 gn=25 archive=1
+[hnx30/sa_nsga3] run 10/30: t=9.77s profit=3580360.81 dn=1 gn=1 archive=100
+[hnx30/sa_nsga3] run 11/30: t=9.92s profit=3274679.18 dn=1 gn=1 archive=16
+[hnx30/sa_nsga3] run 12/30: t=9.42s profit=3218103.39 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 13/30: t=9.43s profit=3489558.41 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 14/30: t=10.37s profit=3279727.93 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 15/30: t=9.90s profit=3390198.94 dn=1 gn=1 archive=3
+[hnx30/sa_nsga3] run 16/30: t=10.39s profit=3219326.85 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 17/30: t=9.44s profit=3494837.35 dn=1 gn=1 archive=3
+[hnx30/sa_nsga3] run 18/30: t=9.41s profit=3446528.59 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 19/30: t=9.34s profit=3654707.85 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 20/30: t=9.47s profit=3110196.21 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 21/30: t=9.59s profit=3293949.86 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 22/30: t=12.84s profit=3456892.62 dn=2 gn=29 archive=1
+[hnx30/sa_nsga3] run 23/30: t=10.00s profit=3396825.13 dn=2 gn=4 archive=1
+[hnx30/sa_nsga3] run 24/30: t=9.54s profit=3339692.67 dn=1 gn=1 archive=3
+[hnx30/sa_nsga3] run 25/30: t=9.40s profit=3233169.38 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 26/30: t=9.47s profit=3487481.67 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 27/30: t=9.54s profit=3120609.56 dn=1 gn=1 archive=1
+[hnx30/sa_nsga3] run 28/30: t=16.25s profit=3535533.64 dn=2 gn=59 archive=1
+[hnx30/sa_nsga3] run 29/30: t=9.37s profit=3188321.92 dn=1 gn=1 archive=5
+[hnx30/sa_nsga3] run 30/30: t=9.41s profit=3412291.55 dn=1 gn=1 archive=2
+
+Wrote sa_nsga3_results_hnx30.json
+=== run_legacy.py START ===
+Wed May  6 09:41:17 +07 2026
+[vn30/ga] run 1/30: t=7.34s profit=1108254.53 dn=1 gn=1
+[vn30/ga] run 2/30: t=7.39s profit=1070887.55 dn=1 gn=1
+[vn30/ga] run 3/30: t=7.20s profit=1055707.52 dn=1 gn=1
+[vn30/ga] run 4/30: t=7.21s profit=1031578.27 dn=1 gn=1
+[vn30/ga] run 5/30: t=7.93s profit=1040819.39 dn=1 gn=5
+[vn30/ga] run 6/30: t=7.60s profit=1013476.56 dn=1 gn=3
+[vn30/ga] run 7/30: t=7.68s profit=1057651.42 dn=1 gn=3
+[vn30/ga] run 8/30: t=7.79s profit=800592.18 dn=1 gn=5
+[vn30/ga] run 9/30: t=7.33s profit=826344.77 dn=1 gn=1
+[vn30/ga] run 10/30: t=7.27s profit=950370.79 dn=1 gn=1
+[vn30/ga] run 11/30: t=7.29s profit=1054154.72 dn=1 gn=1
+[vn30/ga] run 12/30: t=7.44s profit=1071503.79 dn=1 gn=1
+[vn30/ga] run 13/30: t=8.34s profit=1055532.23 dn=1 gn=9
+[vn30/ga] run 14/30: t=7.38s profit=1046731.49 dn=1 gn=1
+[vn30/ga] run 15/30: t=7.35s profit=1055356.75 dn=1 gn=1
+[vn30/ga] run 16/30: t=8.07s profit=1055327.28 dn=1 gn=9
+[vn30/ga] run 17/30: t=7.28s profit=1071411.96 dn=1 gn=1
+[vn30/ga] run 18/30: t=7.28s profit=1055479.23 dn=1 gn=1
+[vn30/ga] run 19/30: t=8.64s profit=1039828.01 dn=1 gn=14
+[vn30/ga] run 20/30: t=7.48s profit=1055185.19 dn=1 gn=2
+[vn30/ga] run 21/30: t=7.30s profit=987486.84 dn=1 gn=1
+[vn30/ga] run 22/30: t=7.41s profit=1003061.50 dn=1 gn=1
+[vn30/ga] run 23/30: t=7.34s profit=1055356.75 dn=1 gn=1
+[vn30/ga] run 24/30: t=7.27s profit=1082317.89 dn=1 gn=1
+[vn30/ga] run 25/30: t=7.34s profit=1028097.62 dn=1 gn=1
+[vn30/ga] run 26/30: t=7.31s profit=1055118.15 dn=1 gn=1
+[vn30/ga] run 27/30: t=7.33s profit=1055070.55 dn=1 gn=1
+[vn30/ga] run 28/30: t=7.29s profit=1055356.75 dn=1 gn=1
+[vn30/ga] run 29/30: t=7.25s profit=1051061.56 dn=1 gn=1
+[vn30/ga] run 30/30: t=7.53s profit=1055752.77 dn=1 gn=1
+
+[vn30/ga] wrote ga_results_vn30.json
+
+[vn30/nsga_ii] run 1/30: t=7.55s profit=1967093.69 dn=1 gn=1
+[vn30/nsga_ii] run 2/30: t=9.26s profit=1954966.22 dn=2 gn=17
+[vn30/nsga_ii] run 3/30: t=7.80s profit=1989509.72 dn=2 gn=3
+[vn30/nsga_ii] run 4/30: t=12.08s profit=1965769.90 dn=4 gn=46
+[vn30/nsga_ii] run 5/30: t=7.58s profit=1982573.74 dn=1 gn=1
+[vn30/nsga_ii] run 6/30: t=7.52s profit=1970154.64 dn=1 gn=1
+[vn30/nsga_ii] run 7/30: t=7.66s profit=1878314.74 dn=1 gn=1
+[vn30/nsga_ii] run 8/30: t=7.67s profit=1977698.80 dn=1 gn=1
+[vn30/nsga_ii] run 9/30: t=7.55s profit=1984057.32 dn=1 gn=1
+[vn30/nsga_ii] run 10/30: t=7.58s profit=1907731.20 dn=1 gn=1
+[vn30/nsga_ii] run 11/30: t=7.53s profit=1925907.00 dn=1 gn=1
+[vn30/nsga_ii] run 12/30: t=12.33s profit=1918112.69 dn=3 gn=48
+[vn30/nsga_ii] run 13/30: t=7.62s profit=1905145.78 dn=1 gn=1
+[vn30/nsga_ii] run 14/30: t=7.58s profit=1957872.88 dn=1 gn=1
+[vn30/nsga_ii] run 15/30: t=14.32s profit=1967894.37 dn=3 gn=84
+[vn30/nsga_ii] run 16/30: t=7.71s profit=1936061.80 dn=2 gn=2
+[vn30/nsga_ii] run 17/30: t=7.65s profit=1990368.03 dn=1 gn=1
+[vn30/nsga_ii] run 18/30: t=7.59s profit=1955320.99 dn=1 gn=1
+[vn30/nsga_ii] run 19/30: t=7.99s profit=1951582.38 dn=2 gn=5
+[vn30/nsga_ii] run 20/30: t=9.40s profit=1987339.33 dn=3 gn=19
+[vn30/nsga_ii] run 21/30: t=10.54s profit=1954832.62 dn=2 gn=30
+[vn30/nsga_ii] run 22/30: t=7.62s profit=1935747.88 dn=1 gn=1
+[vn30/nsga_ii] run 23/30: t=7.76s profit=1970768.86 dn=1 gn=1
+[vn30/nsga_ii] run 24/30: t=7.66s profit=1918430.73 dn=1 gn=1
+[vn30/nsga_ii] run 25/30: t=7.63s profit=2006282.36 dn=1 gn=1
+[vn30/nsga_ii] run 26/30: t=8.11s profit=1965030.90 dn=2 gn=7
+[vn30/nsga_ii] run 27/30: t=8.13s profit=1897533.57 dn=2 gn=4
+[vn30/nsga_ii] run 28/30: t=7.83s profit=1945389.91 dn=1 gn=1
+[vn30/nsga_ii] run 29/30: t=7.67s profit=1962023.04 dn=1 gn=1
+[vn30/nsga_ii] run 30/30: t=10.18s profit=1913586.93 dn=3 gn=21
+
+[vn30/nsga_ii] wrote nsga_ii_results_vn30.json
+
+[vn30/hsg] run 1/30: t=8.13s profit=1955884.38 dn=1 gn=1
+[vn30/hsg] run 2/30: t=8.26s profit=1938308.09 dn=1 gn=1
+[vn30/hsg] run 3/30: t=8.84s profit=1911145.77 dn=2 gn=5
+[vn30/hsg] run 4/30: t=14.38s profit=1955149.72 dn=2 gn=59
+[vn30/hsg] run 5/30: t=8.21s profit=1895563.70 dn=1 gn=1
+[vn30/hsg] run 6/30: t=8.25s profit=1979885.54 dn=1 gn=1
+[vn30/hsg] run 7/30: t=8.34s profit=1908987.24 dn=1 gn=1
+[vn30/hsg] run 8/30: t=9.97s profit=1919908.58 dn=1 gn=1
+[vn30/hsg] run 9/30: t=99.12s profit=2012106.85 dn=1 gn=1
+[vn30/hsg] run 10/30: t=9.42s profit=1939051.16 dn=1 gn=1
+[vn30/hsg] run 11/30: t=8.75s profit=1931658.90 dn=1 gn=1
+[vn30/hsg] run 12/30: t=9.44s profit=1987073.10 dn=2 gn=6
+[vn30/hsg] run 13/30: t=8.39s profit=1893737.63 dn=1 gn=1
+[vn30/hsg] run 14/30: t=8.29s profit=2004714.51 dn=1 gn=1
+[vn30/hsg] run 15/30: t=11.90s profit=2011404.12 dn=2 gn=35
+[vn30/hsg] run 16/30: t=8.66s profit=1957567.54 dn=2 gn=2
+[vn30/hsg] run 17/30: t=8.44s profit=1872514.39 dn=1 gn=1
+[vn30/hsg] run 18/30: t=8.35s profit=1973246.36 dn=1 gn=1
+[vn30/hsg] run 19/30: t=10.59s profit=1998609.73 dn=3 gn=22
+[vn30/hsg] run 20/30: t=14.00s profit=1948881.82 dn=4 gn=53
+[vn30/hsg] run 21/30: t=8.33s profit=1922349.63 dn=1 gn=1
+[vn30/hsg] run 22/30: t=13.82s profit=1942894.43 dn=2 gn=51
+[vn30/hsg] run 23/30: t=8.31s profit=1910950.37 dn=1 gn=1
+[vn30/hsg] run 24/30: t=8.39s profit=1953338.90 dn=1 gn=1
+[vn30/hsg] run 25/30: t=8.31s profit=1932735.78 dn=1 gn=1
+[vn30/hsg] run 26/30: t=8.78s profit=1984384.21 dn=2 gn=4
+[vn30/hsg] run 27/30: t=8.33s profit=1916640.86 dn=1 gn=1
+[vn30/hsg] run 28/30: t=8.24s profit=1815418.69 dn=1 gn=1
+[vn30/hsg] run 29/30: t=8.36s profit=1893160.37 dn=1 gn=1
+[vn30/hsg] run 30/30: t=16.12s profit=1978686.94 dn=3 gn=82
+
+[vn30/hsg] wrote hsg_results_vn30.json
+
+[hnx30/ga] run 1/30: t=7.35s profit=1055065.06 dn=1 gn=1
+[hnx30/ga] run 2/30: t=7.23s profit=1055422.89 dn=1 gn=1
+[hnx30/ga] run 3/30: t=7.41s profit=1055370.13 dn=1 gn=1
+[hnx30/ga] run 4/30: t=7.52s profit=1055356.75 dn=1 gn=1
+[hnx30/ga] run 5/30: t=7.37s profit=1056556.87 dn=1 gn=1
+[hnx30/ga] run 6/30: t=7.58s profit=1248916.16 dn=1 gn=1
+[hnx30/ga] run 7/30: t=7.26s profit=1049497.99 dn=1 gn=1
+[hnx30/ga] run 8/30: t=7.42s profit=1055200.62 dn=1 gn=1
+[hnx30/ga] run 9/30: t=7.64s profit=1056513.73 dn=1 gn=1
+[hnx30/ga] run 10/30: t=7.38s profit=1058927.94 dn=1 gn=1
+[hnx30/ga] run 11/30: t=7.48s profit=1055356.75 dn=1 gn=1
+[hnx30/ga] run 12/30: t=7.77s profit=1044152.10 dn=1 gn=1
+[hnx30/ga] run 13/30: t=7.39s profit=1049328.39 dn=1 gn=1
+[hnx30/ga] run 14/30: t=7.43s profit=1054715.57 dn=1 gn=1
+[hnx30/ga] run 15/30: t=7.38s profit=1051747.19 dn=1 gn=1
+[hnx30/ga] run 16/30: t=7.54s profit=1063074.83 dn=1 gn=1
+[hnx30/ga] run 17/30: t=7.18s profit=1134392.47 dn=1 gn=1
+[hnx30/ga] run 18/30: t=7.42s profit=1055356.75 dn=1 gn=1
+[hnx30/ga] run 19/30: t=7.36s profit=1055356.75 dn=1 gn=1
+[hnx30/ga] run 20/30: t=7.45s profit=1087658.08 dn=1 gn=1
+[hnx30/ga] run 21/30: t=7.97s profit=1055356.75 dn=1 gn=1
+[hnx30/ga] run 22/30: t=7.56s profit=1055622.08 dn=1 gn=1
+[hnx30/ga] run 23/30: t=7.83s profit=1063391.46 dn=1 gn=1
+[hnx30/ga] run 24/30: t=7.78s profit=1156723.07 dn=1 gn=1
+[hnx30/ga] run 25/30: t=7.68s profit=1085973.18 dn=1 gn=1
+[hnx30/ga] run 26/30: t=7.79s profit=1054905.92 dn=1 gn=1
+[hnx30/ga] run 27/30: t=7.88s profit=992427.20 dn=1 gn=1
+[hnx30/ga] run 28/30: t=8.01s profit=1055061.87 dn=1 gn=1
+[hnx30/ga] run 29/30: t=7.66s profit=1053599.50 dn=1 gn=1
+[hnx30/ga] run 30/30: t=7.80s profit=1055387.67 dn=1 gn=1
+
+[hnx30/ga] wrote ga_results_hnx30.json
+
+[hnx30/nsga_ii] run 1/30: t=8.58s profit=3147836.04 dn=1 gn=1
+[hnx30/nsga_ii] run 2/30: t=8.36s profit=3030906.36 dn=1 gn=1
+[hnx30/nsga_ii] run 3/30: t=8.12s profit=3034587.17 dn=1 gn=1
+[hnx30/nsga_ii] run 4/30: t=8.08s profit=3273161.89 dn=1 gn=1
+[hnx30/nsga_ii] run 5/30: t=8.05s profit=3016095.23 dn=1 gn=1
+[hnx30/nsga_ii] run 6/30: t=7.92s profit=2841322.02 dn=1 gn=1
+[hnx30/nsga_ii] run 7/30: t=7.89s profit=3086322.30 dn=1 gn=1
+[hnx30/nsga_ii] run 8/30: t=8.21s profit=2817207.12 dn=1 gn=1
+[hnx30/nsga_ii] run 9/30: t=8.01s profit=3178388.99 dn=1 gn=1
+[hnx30/nsga_ii] run 10/30: t=7.76s profit=2695296.81 dn=1 gn=1
+[hnx30/nsga_ii] run 11/30: t=7.79s profit=3237375.56 dn=1 gn=1
+[hnx30/nsga_ii] run 12/30: t=8.10s profit=3652296.98 dn=2 gn=2
+[hnx30/nsga_ii] run 13/30: t=7.93s profit=3240233.79 dn=1 gn=1
+[hnx30/nsga_ii] run 14/30: t=7.76s profit=3204813.99 dn=1 gn=1
+[hnx30/nsga_ii] run 15/30: t=7.63s profit=2960155.80 dn=1 gn=1
+[hnx30/nsga_ii] run 16/30: t=7.68s profit=2992385.21 dn=1 gn=1
+[hnx30/nsga_ii] run 17/30: t=7.57s profit=3168482.79 dn=1 gn=1
+[hnx30/nsga_ii] run 18/30: t=9.30s profit=3374280.66 dn=2 gn=17
+[hnx30/nsga_ii] run 19/30: t=7.57s profit=3302959.64 dn=1 gn=1
+[hnx30/nsga_ii] run 20/30: t=7.81s profit=3047310.55 dn=1 gn=1
+[hnx30/nsga_ii] run 21/30: t=7.70s profit=3272386.04 dn=1 gn=1
+[hnx30/nsga_ii] run 22/30: t=7.94s profit=3255262.88 dn=1 gn=1
+[hnx30/nsga_ii] run 23/30: t=7.88s profit=2555425.64 dn=1 gn=1
+[hnx30/nsga_ii] run 24/30: t=7.71s profit=3173607.68 dn=1 gn=1
+[hnx30/nsga_ii] run 25/30: t=7.87s profit=3016656.55 dn=1 gn=1
+[hnx30/nsga_ii] run 26/30: t=7.71s profit=3305228.71 dn=1 gn=1
+[hnx30/nsga_ii] run 27/30: t=7.84s profit=3003069.89 dn=1 gn=1
+[hnx30/nsga_ii] run 28/30: t=7.73s profit=3273709.80 dn=1 gn=1
+[hnx30/nsga_ii] run 29/30: t=7.80s profit=3224368.71 dn=1 gn=1
+[hnx30/nsga_ii] run 30/30: t=7.92s profit=3058906.80 dn=1 gn=1
+
+[hnx30/nsga_ii] wrote nsga_ii_results_hnx30.json
+
+[hnx30/hsg] run 1/30: t=8.87s profit=3117765.08 dn=1 gn=1
+[hnx30/hsg] run 2/30: t=8.59s profit=3090045.50 dn=1 gn=1
+[hnx30/hsg] run 3/30: t=15.23s profit=3115503.89 dn=2 gn=60
+[hnx30/hsg] run 4/30: t=8.66s profit=3028363.54 dn=1 gn=1
+[hnx30/hsg] run 5/30: t=8.47s profit=3130768.48 dn=1 gn=1
+[hnx30/hsg] run 6/30: t=8.42s profit=3532200.51 dn=1 gn=1
+[hnx30/hsg] run 7/30: t=8.72s profit=3548012.27 dn=1 gn=1
+[hnx30/hsg] run 8/30: t=8.80s profit=2674496.88 dn=1 gn=1
+[hnx30/hsg] run 9/30: t=8.88s profit=3214301.90 dn=1 gn=1
+[hnx30/hsg] run 10/30: t=8.56s profit=2754994.33 dn=1 gn=1
+[hnx30/hsg] run 11/30: t=8.61s profit=3103290.74 dn=1 gn=1
+[hnx30/hsg] run 12/30: t=8.69s profit=3561755.14 dn=2 gn=2
+[hnx30/hsg] run 13/30: t=8.65s profit=3289001.35 dn=1 gn=1
+[hnx30/hsg] run 14/30: t=8.59s profit=3302233.97 dn=1 gn=1
+[hnx30/hsg] run 15/30: t=8.60s profit=2882183.60 dn=1 gn=1
+[hnx30/hsg] run 16/30: t=8.45s profit=3275326.23 dn=1 gn=1
+[hnx30/hsg] run 17/30: t=8.45s profit=3513485.95 dn=1 gn=1
+[hnx30/hsg] run 18/30: t=8.51s profit=3374134.14 dn=1 gn=1
+[hnx30/hsg] run 19/30: t=9.26s profit=3289955.41 dn=1 gn=1
+[hnx30/hsg] run 20/30: t=8.67s profit=2995574.80 dn=1 gn=1
+[hnx30/hsg] run 21/30: t=8.45s profit=3142850.64 dn=1 gn=1
+[hnx30/hsg] run 22/30: t=12.89s profit=3269454.12 dn=2 gn=43
+[hnx30/hsg] run 23/30: t=8.48s profit=3140311.64 dn=1 gn=1
+[hnx30/hsg] run 24/30: t=9.28s profit=3152053.76 dn=2 gn=5
+[hnx30/hsg] run 25/30: t=8.83s profit=2856527.75 dn=1 gn=1
+[hnx30/hsg] run 26/30: t=8.50s profit=2764092.22 dn=1 gn=1
+[hnx30/hsg] run 27/30: t=12.72s profit=3191146.00 dn=1 gn=1
+[hnx30/hsg] run 28/30: t=8.62s profit=3330020.65 dn=1 gn=1
+[hnx30/hsg] run 29/30: t=8.73s profit=3072543.98 dn=1 gn=1
+[hnx30/hsg] run 30/30: t=8.86s profit=3340759.86 dn=1 gn=1
+
+[hnx30/hsg] wrote hsg_results_hnx30.json
+
+=== ALL DONE ===
+Wed May  6 10:07:54 +07 2026
