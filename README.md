@@ -126,7 +126,7 @@ Pareto-based MOEAs it is at best profit-neutral and often hurts SP.
 ## How to reproduce
 
 ```bash
-cd ~/Projects/PortfolioAnalyzer
+cd ~/ro-po-moea-sa-moea
 python3 equal_weight.py                 # passive baseline
 python3 spea2.py vn30 hnx30             # vanilla SPEA2
 python3 spea2.py --sa vn30 hnx30        # SA-SPEA2
