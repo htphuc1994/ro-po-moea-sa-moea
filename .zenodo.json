@@ -1,0 +1,40 @@
+{
+  "title": "Code and data for \"MOEA and SA-MOEA for cash-dividend portfolios: evidence from Vietnamese equities\"",
+  "upload_type": "software",
+  "version": "2.0.0",
+  "description": "Implementation, instance data and run files accompanying the manuscript \"MOEA and SA-MOEA for cash-dividend portfolios: evidence from Vietnamese equities\" (second revision). The archive contains the multi-period dividend-portfolio model; the GA, NSGA-II, SPEA2, NSGA-III and MOEA/D solvers with SA injection, random-injection controls and elite-anchored variants; the exact small-instance mixed-integer linear program; seven instances (VN30 and HNX30 for 2023, 2024 and 2025, and VN30+HNX30 for 2023) derived from public HOSE and HNX trading records; all run files; and the analysis scripts that regenerate the paper's tables and figures. Code is released under the MIT license; data and run files under CC BY 4.0 (see LICENSE-DATA.md).",
+  "license": "MIT",
+  "keywords": [
+    "multi-period portfolio optimization",
+    "multiobjective evolutionary algorithm",
+    "cash dividends",
+    "Vietnamese equity market"
+  ],
+  "creators": [
+    {
+      "name": "Huynh, Phuc Tan",
+      "affiliation": "Industrial University of Ho Chi Minh City",
+      "orcid": "0009-0000-0402-2432"
+    },
+    {
+      "name": "Trang, Son Hong",
+      "affiliation": "Hoa Sen University",
+      "orcid": "0009-0009-2360-9867"
+    },
+    {
+      "name": "Vo, Khoa D.",
+      "affiliation": "Industrial University of Ho Chi Minh City",
+      "orcid": "0000-0003-3631-3511"
+    },
+    {
+      "name": "Huynh-Tuong, Nguyen",
+      "affiliation": "Industrial University of Ho Chi Minh City",
+      "orcid": "0000-0001-6592-4480"
+    },
+    {
+      "name": "Soukhal, Ameur",
+      "affiliation": "University of Tours",
+      "orcid": "0000-0002-4668-823X"
+    }
+  ]
+}

@@ -1,141 +1,72 @@
-# ro-po-moea-sa-moea
+# MOEA and SA-MOEA for cash-dividend portfolios — code and data
 
-Full MySQL data here: https://drive.google.com/drive/folders/1xLtc0QZssE-lmWDuGGrnzd_tlBVnrYSZ?usp=sharing
+Code, instance data and run files for the manuscript *"MOEA and SA-MOEA for cash-dividend
+portfolios: evidence from Vietnamese equities"* (second revision). Every table and figure of
+the paper's results section can be regenerated from this repository.
 
-# Experiments
+## Contents
 
-Final results for the dividend-portfolio comparison study. All runs were
-executed on the same machine (Apple Silicon laptop, 2026-05-06) with
-identical hyperparameters: pop / archive size $100$ (or $N=70$ for
-MOEA/D from Das-Dennis $p=4$), max generations $150$, no-improvement
-stopping at $79$ stagnant generations, $K=20$, $T_0=750$, $\lambda=0.95$,
-$L=10$, $\beta_E=10^4$, MOEA/D neighborhood $T=20$, $\delta=0.9$, $n_r=2$.
+| Path | What it holds |
+|---|---|
+| `plan.py` | Multi-period model: cash recursion, risk objectives on capital weights, constructive sampler, SA phase |
+| `dominance.py`, `core.py` | Constraint-domination (and the lexicographic rule used in the ablation), non-dominated sorting, crowding |
+| `solvers.py` | GA, NSGA-II, SPEA2, NSGA-III, MOEA/D; SA injection, random-injection control, elite-anchored variants |
+| `checker.py` | Independent check of every constraint of a plan |
+| `milp_small.py` | Exact maximum terminal cash of small instances (mixed-integer linear program, HiGHS) |
+| `baselines.py` | Deposit-only and equal-weight references |
+| `metrics.py`, `stats.py` | Hypervolume, IGD+, spacing, coverage; Friedman, Wilcoxon, Holm, bootstrap |
+| `run_all.py` | Experiment matrix; one JSON file per run |
+| `analysis.py` | Tables, figures and `results_summary.json` from the run files |
+| `data/instances/` | The seven instances (VN30 and HNX30 for 2023, 2024 and 2025; VN30+HNX30 for 2023): monthly planning data (`*.json`) and daily return inputs (`*_moments.npz`) |
+| `data/` | Index universes (`universes.json`) and the first-round 2023 data (`vn30_2023.json`, `hnx30_2023.json`) |
+| `results/`, `results_timing/` | All run files (`results/<instance>/<configuration>/seed_<seed>.json`) and the timing pass |
+| `results_summary.json` | Every number reported in the paper |
+| `tests/` | Unit tests |
+| `legacy/` | First-round implementation and outputs, kept for traceability |
 
-## Solvers covered
+Configuration labels: `<solver>[+sa|+ri|+sae|+rie][@lex][-nodiv][-K<k>]`. `+sa` is SA injection with
+its own chain, `+ri` its random-injection control, `+sae`/`+rie` the elite-anchored variants,
+`@lex` the lexicographic comparison rule, `-nodiv` the run without dividends and `-K<k>` another
+cardinality cap.
 
-Three Pareto-based MOEA bases (NSGA-II, SPEA2, NSGA-III) plus a
-decomposition-based MOEA (MOEA/D). Each base is also run with the
-SA-injection wrapper (the SA incumbent replaces the last offspring
-slot each generation), giving four "vanilla + SA" pairs. A
-single-objective GA baseline and a deterministic equal-weight
-buy-and-hold baseline complete the picture.
+## Data
 
-| # | Solver | Source | Output JSON |
-| --- | --- | --- | --- |
-| 1 | GA | `plan.py` (re-run via `run_legacy.py`) | `ga_results_<ds>.json` |
-| 2 | NSGA-II | `plan.py` (re-run via `run_legacy.py`) | `nsga_ii_results_<ds>.json` |
-| 3 | SA-NSGA-II[^hsg] | `plan.py` (re-run via `run_legacy.py`) | `hsg_results_<ds>.json` |
-| 4 | SPEA2 | `spea2.py` | `spea2_results_<ds>.json` |
-| 5 | SA-SPEA2 | `spea2.py --sa` | `sa_spea2_results_<ds>.json` |
-| 6 | NSGA-III | `nsga3.py` | `nsga3_results_<ds>.json` |
-| 7 | SA-NSGA-III | `nsga3.py` | `sa_nsga3_results_<ds>.json` |
-| 8 | MOEA/D | `moead.py` | `moead_results_<ds>.json` |
-| 9 | SA-MOEA/D | `moead.py --sa` | `sa_moead_results_<ds>.json` |
-| – | Equal-weight (top-K, all) | `equal_weight.py` | `equal_weight_results.json` |
+The instance files in `data/instances/` are the data of the paper. They are derived from the
+public trading and corporate-action records of the Ho Chi Minh (HOSE) and Hanoi (HNX) stock
+exchanges. Each instance uses the index constituents in force on 31 December of its year (VN30
+from HOSE's July review, HNX30 from HNX's October review), listed in `data/universes.json`. The
+monthly planning price of a stock is the month's highest daily closing price, the volume cap is
+the month's total matched volume, and a cash dividend is assigned to the month of its ex-date.
+The moment files hold the centred daily log returns `C` of the three years before the evaluation
+year and their covariance `M2`; the third and fourth co-moments follow exactly from `C`
+(`plan.comoments`), and the model evaluates them as sample moments of the portfolio return
+series. The scripts that downloaded and assembled the daily records are not part of this
+release.
 
-[^hsg]: SA-NSGA-II was developed under the working name **HSG** and the
-JSON output (and the `HSG` column header in
-`analyze_with_baselines_output.txt`) keeps the legacy `hsg_` prefix
-for backward-compat with `run_legacy.py` and the analysis scripts.
-The algorithm is the same.
+## Reproducing the results
 
-`<ds>` is `vn30` or `hnx30`. Datasets: VN30 and HNX30 monthly quotes +
-corporate actions for 2023, with 30 independent runs per (solver,
-dataset) cell. The seeds `seed_base + r` for $r \in \{0,\dots,29\}$
-match across all stochastic methods so per-run differences are due
-to algorithmic dynamics rather than RNG drift.
+Python 3.14 with the packages in `requirements.txt`:
 
-## Profit (terminal cash, kVND, 30 runs)
-
-| Solver | VN30 mean | VN30 sd | HNX30 mean | HNX30 sd |
-| --- | --- | --- | --- | --- |
-| GA | 1,031,000 | 66,050 | 1,068,000 | 43,870 |
-| NSGA-II | 1,951,000 | 31,580 | 3,115,000 | 214,200 |
-| SA-NSGA-II | 1,942,000 | 44,600 | 3,168,000 | 231,600 |
-| MOEA/D | 1,920,000 | 61,160 | 2,973,000 | 270,400 |
-| SA-MOEA/D | 1,928,000 | 57,250 | 3,067,000 | 205,600 |
-| SA-SPEA2 | 1,960,000 | 95,610 | 3,366,000 | 284,100 |
-| SPEA2 | 1,995,000 | 29,930 | 3,358,000 | 157,700 |
-| SA-NSGA-III | 1,998,000 | 31,930 | 3,383,000 | 168,200 |
-| **NSGA-III** | **2,007,000** | **21,510** | **3,386,000** | 174,400 |
-| Equal-weight (top-K=20) | 1,000,509 | – | 1,271,328 | – |
-| Equal-weight (all) | 959,144 | – | 1,260,486 | – |
-
-**Friedman omnibus on profit:** $\chi^2 = 148.4$, $p \approx 4.3 \times 10^{-28}$ (VN30); $\chi^2 = 150.5$, $p \approx 1.5 \times 10^{-28}$ (HNX30).
-
-**Pairwise Wilcoxon / Holm-corrected** clusters at $\alpha=0.05$ (same on both datasets up to numeric variation):
-
-- **Bottom**: GA — dominated by every MOEA ($p_{\rm Holm} < 10^{-7}$ in every comparison).
-- **Lower-middle**: MOEA/D, SA-MOEA/D, NSGA-II, SA-NSGA-II, SA-SPEA2 — mostly mutually n.s.
-- **Top tier**: SPEA2, SA-NSGA-III, NSGA-III — three-way statistical tie, all significantly above the lower-middle group ($p_{\rm Holm} < 10^{-3}$).
-
-## Runtime (seconds, 30-run mean)
-
-| Solver | VN30 | HNX30 |
-| --- | --- | --- |
-| MOEA/D | **6.15** | **6.15** |
-| SA-MOEA/D | 6.73 | 6.77 |
-| SPEA2 | 7.37 | 7.36 |
-| GA | 7.49 | 7.55 |
-| NSGA-II | 8.50 | 7.94 |
-| SA-SPEA2 | 8.55 | 8.34 |
-| NSGA-III | 9.02 | 8.74 |
-| SA-NSGA-III | 9.86 | 10.08 |
-| SA-NSGA-II | **12.56** | **9.17** |
-
-The new laptop is roughly $10\times$ faster than the old one used in the
-earlier draft of the paper, so the prior comparative-runtime numbers
-are obsolete; only these are valid going forward.
-
-## Spacing SP (lower = more uniform)
-
-| Solver | VN30 | HNX30 |
-| --- | --- | --- |
-| GA | 0.0243 | 0.0071 |
-| NSGA-II | 0.0486 | 0.0433 |
-| SA-NSGA-II | 0.0624 | 0.0354 |
-| **NSGA-III** | 0.0510 | **0.0258** |
-| **SPEA2** | **0.0501** | 0.0495 |
-| SA-MOEA/D | 0.0717 | **0.0425** |
-| SA-NSGA-III | 0.0702 | 0.0539 |
-| SA-SPEA2 | 0.1055 | 0.0708 |
-| MOEA/D | 0.1632 | 0.0769 |
-
-GA spacing is degenerate (it converges to deposit-only plans); ignore
-it in cross-method comparisons. Among the MOEAs, **NSGA-III has the
-best SP on HNX30 and is in the top tier on VN30**, which together with
-its top-tier profit makes it the consensus winner.
-
-## SA-injection effect summary
-
-The SA-injection wrapper (replacing one offspring slot each generation
-by an SA incumbent) was applied to all four MOEA bases. None of them
-showed a statistically significant profit gain over the vanilla
-counterpart (paired Wilcoxon / Holm $p \ge 0.05$ in every SA-vs-vanilla
-pair, both datasets). The SP effect is mixed:
-
-- SA-NSGA-II vs NSGA-II: SP **worse** on VN30 ($0.062$ vs $0.049$); slightly **better** on HNX30 ($0.035$ vs $0.043$).
-- SA-SPEA2 vs SPEA2: SP **worse** on both datasets.
-- SA-NSGA-III vs NSGA-III: SP **worse** on both datasets.
-- SA-MOEA/D vs MOEA/D: SP dramatically **better** on both datasets ($0.072$ vs $0.163$ on VN30; $0.043$ vs $0.077$ on HNX30).
-
-The takeaway is that SA injection is **only useful on MOEA/D**, where
-it compensates for the decomposition-based diversity weakness; on
-Pareto-based MOEAs it is at best profit-neutral and often hurts SP.
-
-## How to reproduce
-
-```bash
-cd ~/ro-po-moea-sa-moea
-python3 equal_weight.py                 # passive baseline
-python3 spea2.py vn30 hnx30             # vanilla SPEA2
-python3 spea2.py --sa vn30 hnx30        # SA-SPEA2
-python3 nsga3.py vn30 hnx30             # NSGA-III + SA-NSGA-III
-python3 moead.py vn30 hnx30             # vanilla MOEA/D
-python3 moead.py --sa vn30 hnx30        # SA-MOEA/D
-python3 run_legacy.py vn30 hnx30        # GA + NSGA-II + SA-NSGA-II
-python3 analyze_with_baselines.py       # consolidated tables
+```
+pip install -r requirements.txt
+python3 -m pytest -q tests                        # unit tests
+python3 run_all.py main lex extra elite --workers 8
+python3 run_all.py timing                         # sequential runtime pass
+python3 -c "import milp_small; milp_small.main()" # small-instance MILP study
+python3 analysis.py --paper out                   # tables and figures into out/tables, out/figures
 ```
 
-`analyze_with_baselines.py` writes the human-readable comparison report
-to `analyze_with_baselines_output.txt`.
+Runs are deterministic: the same seed reproduces a run exactly, and existing run files are
+skipped, so the commands above only fill in what is missing. Seeds 1234–1263 give every solver the
+same initial population (common random numbers).
+
+The first-round inputs (`data/calculate2023/`) are not part of this release; they remain in the
+repository history (commit `01a6115`).
+
+## License
+
+Code: MIT (`LICENSE`). Data and run files: CC BY 4.0 (`LICENSE-DATA.md`).
+
+## Citation
+
+See `CITATION.cff`.

@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+type: software
+title: 'Code and data for "MOEA and SA-MOEA for cash-dividend portfolios: evidence from Vietnamese equities"'
+version: 2.0.0
+date-released: 2026-11-24
+license: MIT
+repository-code: "https://github.com/htphuc1994/ro-po-moea-sa-moea"
+keywords:
+  - multi-period portfolio optimization
+  - multiobjective evolutionary algorithm
+  - cash dividends
+  - Vietnamese equity market
+authors:
+  - family-names: Huynh
+    given-names: Phuc Tan
+    orcid: "https://orcid.org/0009-0000-0402-2432"
+    affiliation: Industrial University of Ho Chi Minh City
+  - family-names: Trang
+    given-names: Son Hong
+    orcid: "https://orcid.org/0009-0009-2360-9867"
+    affiliation: Hoa Sen University
+  - family-names: Vo
+    given-names: Khoa D.
+    orcid: "https://orcid.org/0000-0003-3631-3511"
+    affiliation: Industrial University of Ho Chi Minh City
+  - family-names: Huynh-Tuong
+    given-names: Nguyen
+    orcid: "https://orcid.org/0000-0001-6592-4480"
+    affiliation: Industrial University of Ho Chi Minh City
+  - family-names: Soukhal
+    given-names: Ameur
+    orcid: "https://orcid.org/0000-0002-4668-823X"
+    affiliation: University of Tours
