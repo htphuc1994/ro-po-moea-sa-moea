@@ -1,5 +1,7 @@
 # MOEA and SA-MOEA for cash-dividend portfolios — code and data
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24499526.svg)](https://doi.org/10.5281/zenodo.24499526)
+
 Code, instance data and run files for the manuscript *"MOEA and SA-MOEA for cash-dividend
 portfolios: evidence from Vietnamese equities"* (second revision). Every table and figure of
 the paper's results section can be regenerated from this repository.

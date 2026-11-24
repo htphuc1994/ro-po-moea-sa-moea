@@ -3,6 +3,7 @@ message: "If you use this code or data, please cite it as below."
 type: software
 title: 'Code and data for "MOEA and SA-MOEA for cash-dividend portfolios: evidence from Vietnamese equities"'
 version: 2.0.0
+doi: 10.5281/zenodo.24499527
 date-released: 2026-11-24
 license: MIT
 repository-code: "https://github.com/htphuc1994/ro-po-moea-sa-moea"
