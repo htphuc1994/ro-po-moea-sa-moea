@@ -12,7 +12,7 @@ the paper's results section can be regenerated from this repository.
 |---|---|
 | `plan.py` | Multi-period model: cash recursion, risk objectives on capital weights, constructive sampler, SA phase |
 | `dominance.py`, `core.py` | Constraint-domination (and the lexicographic rule used in the ablation), non-dominated sorting, crowding |
-| `solvers.py` | GA, NSGA-II, SPEA2, NSGA-III, MOEA/D; SA injection, random-injection control, elite-anchored variants |
+| `solvers.py` | GA, NSGA-II, SPEA2, NSGA-III, MOEA/D; SA injection, random-injection control, elite-anchored variants, SA starting temperature |
 | `checker.py` | Independent check of every constraint of a plan |
 | `milp_small.py` | Exact maximum terminal cash of small instances (mixed-integer linear program, HiGHS) |
 | `baselines.py` | Deposit-only and equal-weight references |
@@ -26,10 +26,11 @@ the paper's results section can be regenerated from this repository.
 | `tests/` | Unit tests |
 | `legacy/` | First-round implementation and outputs, kept for traceability |
 
-Configuration labels: `<solver>[+sa|+ri|+sae|+rie][@lex][-nodiv][-K<k>]`. `+sa` is SA injection with
-its own chain, `+ri` its random-injection control, `+sae`/`+rie` the elite-anchored variants,
-`@lex` the lexicographic comparison rule, `-nodiv` the run without dividends and `-K<k>` another
-cardinality cap.
+Configuration labels: `<solver>[+sa|+ri|+sae|+rie][@lex][-nodiv][-K<k>][-chi<p>]`. `+sa` is SA
+injection with its own chain, `+ri` its random-injection control, `+sae`/`+rie` the elite-anchored
+variants, `@lex` the lexicographic comparison rule, `-nodiv` the run without dividends, `-K<k>`
+another cardinality cap and `-chi<p>` another starting temperature of the SA phase (an average
+worsening move is accepted with probability `p` at the start of a phase; 0.5 in the main runs).
 
 ## Data
 
@@ -52,7 +53,7 @@ Python 3.14 with the packages in `requirements.txt`:
 ```
 pip install -r requirements.txt
 python3 -m pytest -q tests                        # unit tests
-python3 run_all.py main lex extra elite --workers 8
+python3 run_all.py main lex extra elite chi0 --workers 8
 python3 run_all.py timing                         # sequential runtime pass
 python3 -c "import milp_small; milp_small.main()" # small-instance MILP study
 python3 analysis.py --paper out                   # tables and figures into out/tables, out/figures

@@ -33,6 +33,11 @@ INST = {"vn30_2023": "VN30 2023", "hnx30_2023": "HNX30 2023", "combined_2023": "
 
 
 def pretty(label):
+    label, _, chi = label.partition("-chi")
+    return _pretty(label) + (f" ($\\chi_0={chi}$)" if chi else "")
+
+
+def _pretty(label):
     base, _, rest = label.partition("+")
     mode, _, rule = rest.partition("@") if rest else ("", "", "")
     if "@" in base:
@@ -525,6 +530,62 @@ def elite_table(tables):
     return ("\n".join(lines[:-1]) + "\n") if lines else "", out
 
 
+CHI0 = (0.2, 0.8)     # starting acceptance probabilities of the sensitivity runs (main runs: 0.5)
+
+
+def chi0_table(tables):
+    """Sensitivity of the SA starting temperature. Per 2023 instance and indicator (terminal cash, HV),
+    the 16 contrasts of SA with chi_0 = 0.2 and 0.8 against the base X and against the main SA
+    (chi_0 = 0.5), over the four bases, are tested with the Wilcoxon signed-rank test and Holm-adjusted
+    within that family of 16. The chi_0 = 0.2 and 0.8 cells carry markers: x / s = significantly better
+    than X / SA, and -x / -s = significantly worse. The header comment also gives, per chi_0, the range
+    over instances and bases of the share of worsening moves accepted per SA phase (as sa_acceptance)."""
+    out, lines = {}, []
+    variant = lambda b, c: f"{b}+sa-chi{c:g}"
+    for inst, table in tables.items():
+        if not all(variant(b, c) in table for b in BASES for c in CHI0):
+            continue
+        res = {}
+        for key in ("cash", "hv"):
+            pairs = [(variant(b, c), ref) for c in CHI0 for b in BASES for ref in (b, f"{b}+sa")]
+            cs = [_paired(table, a, b, key) for a, b in pairs]
+            adj, rej = stats.holm([c["p"] for c in cs])
+            for c, pa, rj in zip(cs, adj, rej):
+                c.update(p_holm=float(pa), reject=bool(rj))
+            res[key] = {f"{a}|{b}": c for (a, b), c in zip(pairs, cs)}
+        out[inst] = res
+        for b in BASES:
+            cells = [INST.get(inst, inst), NAME[b]]
+            for key, fmt, dec in (("hv", "{:.3f}", 3), ("cash", "{:,.0f}", 0)):
+                order = [b, variant(b, CHI0[0]), f"{b}+sa", variant(b, CHI0[1])]
+                vals = [np.mean(col(table[l], key)) for l in order]
+                top = best_set(vals, dec, True)          # highest mean of the row, in bold
+                txt = [bf(fmt.format(v), i in top) for i, v in enumerate(vals)]
+                for i in (1, 3):
+                    marks = []
+                    for tag, other in (("x", b), ("s", f"{b}+sa")):
+                        c = res[key][f"{order[i]}|{other}"]
+                        if c["reject"]:
+                            marks.append(tag if c["diff"] > 0 else f"-{tag}")
+                    txt[i] += f"$^{{{','.join(marks)}}}$" if marks else ""
+                cells += txt
+            lines.append(" & ".join(cells) + " \\\\")
+        lines.append("\\midrule")
+    if not out:
+        return "", {}
+    acc = {}
+    for c, suffix in ((CHI0[0], f"-chi{CHI0[0]:g}"), (0.5, ""), (CHI0[1], f"-chi{CHI0[1]:g}")):
+        vals = {f"{inst}|{b}": float(np.mean([sum(a for _, a in r["sa_log"]) / max(1, sum(w for w, _ in r["sa_log"]))
+                                              for r in tables[inst][f"{b}+sa{suffix}"] if r["sa_log"]]))
+                for inst in out for b in BASES}
+        acc[f"{c:g}"] = {"range": [min(vals.values()), max(vals.values())], "values": vals}
+    sig = sorted(f"{INST.get(i, i)} {k} {p}" for i, r in out.items() for k, d in r.items() for p, c in d.items() if c["reject"])
+    head = "% significant contrasts (Holm within the 16 of each instance and indicator): " + ("; ".join(sig) if sig else "none") + "\n"
+    head += "% worsening moves accepted per SA phase (range over instances and bases): " + "; ".join(
+        f"chi0={c}: {100 * a['range'][0]:.0f}-{100 * a['range'][1]:.0f}%" for c, a in acc.items()) + "\n"
+    return head + "\n".join(lines[:-1]) + "\n", {"contrasts": out, "acceptance": acc}
+
+
 def sa_mechanism(tables):
     """Per injection mode: share of generations whose SA phase returns a new plan, share of new plans
     that survive selection, and new injected plans in the final set per run; pooled and per base."""
@@ -645,6 +706,10 @@ def main():
         if tex:
             write(os.path.join(tdir, "elite_sa.tex"), tex)
             summary["elite"] = elite
+        tex, chi = chi0_table(tables)
+        if tex:
+            write(os.path.join(tdir, "chi0.tex"), tex)
+            summary["chi0"] = chi
         tex, gen = generality_table(tables, all_tests, sizes)
         write(os.path.join(tdir, "generality.tex"), tex)
         summary["generality"] = gen

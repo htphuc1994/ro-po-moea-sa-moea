@@ -330,11 +330,13 @@ class SAInjector:
     """SA phase of Algorithm 2. Each generation it draws `SA_STEPS` pivot-month neighbours of a
     generation-fixed anchor, accepts by constraint-domination, improvement or the Metropolis test,
     restarts the temperature at T0 and cools it geometrically to SA_END_RATIO * T0.
-    With accept_all=True it is the random-injection control: same neighbours, every move accepted."""
+    With accept_all=True it is the random-injection control: same neighbours, every move accepted.
+    start_accept is the probability chi_0 with which an average worsening move is accepted at T0."""
 
-    def __init__(self, anchor, accept_all=False):
+    def __init__(self, anchor, accept_all=False, start_accept=SA_START_ACCEPT):
         self.anchor = anchor
         self.accept_all = accept_all
+        self.start_accept = start_accept
         self.T0 = None
         self.log = []   # per generation: [worsening moves, accepted worsening moves]
 
@@ -343,7 +345,7 @@ class SAInjector:
         deltas = [energy(sample(anchor=self.anchor).f, lo, hi) - e0 for _ in range(probes)]
         worse = [d for d in deltas if d > 0]
         mean_worse = float(np.mean(worse)) if worse else 0.05
-        self.T0 = -mean_worse / math.log(SA_START_ACCEPT)
+        self.T0 = -mean_worse / math.log(self.start_accept)
 
     def phase(self, lo, hi):
         if self.T0 is None:

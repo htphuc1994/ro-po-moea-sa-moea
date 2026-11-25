@@ -1,7 +1,7 @@
 """Run the experiment matrix (Section 5.2) in parallel; one JSON per run.
 
 Output: results/<instance>/<label>/seed_<seed>.json (existing files are skipped, so an
-interrupted run resumes). Labels: <method>[+sa|+ri][@lex][-nodiv][-K<k>].
+interrupted run resumes). Labels: <method>[+sa|+ri][@lex][-nodiv][-K<k>][-chi<chi0>].
 
 Blocks:
   main      all instances x {ga, nsga2, spea2, nsga3, moead} + SA and random-injection variants
@@ -9,7 +9,9 @@ Blocks:
   extra     2023 instances x the chosen solver: no dividends, K = 15, K = 25
   elite     2023 instances x {nsga2, spea2, nsga3, moead} with the elite-anchored SA (+sae) and its
             random-injection control (+rie): the pre-specified ablation of the SA anchor
-  timing    2023 instances x main and elite configurations, 10 seeds, one process, seed-major order
+  chi0      2023 instances x {nsga2, spea2, nsga3, moead} + SA with a starting acceptance
+            probability of 0.2 and 0.8 instead of 0.5 (sensitivity of the SA temperature)
+  timing   2023 instances x main and elite configurations, 10 seeds, one process, seed-major order
             (runtime comparison)
 
 Usage:
@@ -37,11 +39,12 @@ BASES = ["ga", "nsga2", "spea2", "nsga3", "moead"]
 MOEAS = ["nsga2", "spea2", "nsga3", "moead"]
 MAIN = [(m, None) for m in BASES] + [(m, "sa") for m in MOEAS] + [(m, "ri") for m in MOEAS]
 ELITE = [(m, "sae") for m in MOEAS] + [(m, "rie") for m in MOEAS]
+CHI0 = (0.2, 0.8)     # starting acceptance probabilities of the sensitivity block (main runs: 0.5)
 
 
-def label(method, sa=None, rule="constrained", nodiv=False, k=None):
+def label(method, sa=None, rule="constrained", nodiv=False, k=None, chi0=None):
     s = method + (f"+{sa}" if sa else "") + ("@lex" if rule == "lexicographic" else "")
-    return s + ("-nodiv" if nodiv else "") + (f"-K{k}" if k else "")
+    return s + ("-nodiv" if nodiv else "") + (f"-K{k}" if k else "") + (f"-chi{chi0:g}" if chi0 is not None else "")
 
 
 def instances(years=None):
@@ -65,15 +68,17 @@ def _load(instance, nodiv, k):
 
 
 def work(job):
-    instance, method, sa, rule, nodiv, k, seed, budget, outdir, snapshots = job
-    path = os.path.join(outdir, instance, label(method, sa, rule, nodiv, k), f"seed_{seed}.json")
+    instance, method, sa, rule, nodiv, k, seed, budget, outdir, snapshots, *rest = job
+    chi0 = rest[0] if rest else None
+    name = label(method, sa, rule, nodiv, k, chi0)
+    path = os.path.join(outdir, instance, name, f"seed_{seed}.json")
     if os.path.exists(path):
         return path, "skip"
     import solvers
     _load(instance, nodiv, k)
     res = solvers.run(method, seed, budget=budget, sa_mode=sa, rule=rule,
-                      snapshot_every=2500 if snapshots else None)
-    res.update({"instance": instance, "label": label(method, sa, rule, nodiv, k), "nodiv": nodiv, "K": k or 20})
+                      snapshot_every=2500 if snapshots else None, sa_chi0=chi0)
+    res.update({"instance": instance, "label": name, "nodiv": nodiv, "K": k or 20})
     os.makedirs(os.path.dirname(path), exist_ok=True)
     tmp = path + ".tmp"
     with open(tmp, "w") as f:
@@ -99,6 +104,10 @@ def jobs_for(block, solver, budget, seeds=SEEDS, out=None, only=None):
     elif block == "elite":
         # pre-specified on the three 2023 instances (including the combined universe)
         j = [(i, m, sa, "constrained", False, None, s, budget, out, True) for i in y2023 for m, sa in ELITE for s in seeds]
+    elif block == "chi0":
+        # sensitivity of the SA starting temperature, on the three 2023 instances
+        j = [(i, m, "sa", "constrained", False, None, s, budget, out, True, c)
+             for i in y2023 for m in MOEAS for c in CHI0 for s in seeds]
     elif block == "timing":
         # seed-major order: every configuration runs once per seed before the next seed starts, so
         # changes in background load are spread over all configurations instead of hitting one block
@@ -109,7 +118,7 @@ def jobs_for(block, solver, budget, seeds=SEEDS, out=None, only=None):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("blocks", nargs="+", choices=["main", "lex", "extra", "elite", "timing"])
+    ap.add_argument("blocks", nargs="+", choices=["main", "lex", "extra", "elite", "chi0", "timing"])
     ap.add_argument("--workers", type=int, default=9)
     ap.add_argument("--budget", type=int, default=10_000)
     ap.add_argument("--solver", default="spea2", help="solver for the 'extra' block")

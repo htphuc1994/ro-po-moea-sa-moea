@@ -8,6 +8,7 @@ hook, and the rule for the single reported plan (core.run_best).
 
 Methods: ga (scalarized baseline), nsga2, spea2, nsga3, moead.
 sa_mode: None, "sa" (SA injection) or "ri" (random-injection control).
+sa_chi0: starting acceptance probability of the SA phase (default plan.SA_START_ACCEPT = 0.5).
 """
 import math
 import random
@@ -391,7 +392,7 @@ def _round(f):
     return [float(f"{x:.7g}") for x in f]
 
 
-def run(method, seed, budget=10_000, sa_mode=None, rule="constrained", snapshot_every=2500):
+def run(method, seed, budget=10_000, sa_mode=None, rule="constrained", snapshot_every=2500, sa_chi0=None):
     """One run. Returns a JSON-ready dict."""
     dominance.set_rule(rule)
     random.seed(seed)
@@ -403,7 +404,8 @@ def run(method, seed, budget=10_000, sa_mode=None, rule="constrained", snapshot_
     plan.EVALS = cls.n_init                             # MOEA/D does not use plans 71-100
     # sa_mode: "sa" (SA chain, Algorithm 2), "ri" (its random-injection control), "sae" / "rie"
     # (the same, but every phase starts from the lowest-energy plan of the current population)
-    sa = plan.SAInjector(pool[0], accept_all=sa_mode in ("ri", "rie")) if sa_mode else None
+    sa = plan.SAInjector(pool[0], accept_all=sa_mode in ("ri", "rie"),
+                         start_accept=plan.SA_START_ACCEPT if sa_chi0 is None else sa_chi0) if sa_mode else None
     elite_anchor = sa_mode in ("sae", "rie")
     diag, new_plans = [], []        # per generation [survived, unchanged]; injected plans that are new
 
@@ -446,7 +448,7 @@ def run(method, seed, budget=10_000, sa_mode=None, rule="constrained", snapshot_
         "snapshots": snaps,
     }
     if sa is not None:
-        out["sa"] = {"T0": sa.T0, "log": sa.log, "diag": diag,
+        out["sa"] = {"T0": sa.T0, "chi0": sa.start_accept, "log": sa.log, "diag": diag,
                      "in_final": sum(1 for x in arch if any(x is p for p in new_plans))}
     if isinstance(solver, SPEA2):
         out["spea2_truncations"] = solver.truncations
