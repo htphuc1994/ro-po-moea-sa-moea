@@ -198,8 +198,8 @@ def tests_table(table):
     res = {k: pairwise(table, labels, k) for k in ("cash", "hv", "sp")}
     res["cs"] = pairwise_cs(table, labels)
     # rows of the three injection groups are labelled by the base X; the group heading states the contrast
-    groups = [("SA injection vs.\\ vanilla: SA-$X$ $-$ $X$", [(f"{b}+sa", b) for b in BASES], True),
-              ("Random injection vs.\\ vanilla: RI-$X$ $-$ $X$", [(f"{b}+ri", b) for b in BASES], True),
+    groups = [("SA injection vs.\\ base: SA-$X$ $-$ $X$", [(f"{b}+sa", b) for b in BASES], True),
+              ("Random injection vs.\\ base: RI-$X$ $-$ $X$", [(f"{b}+ri", b) for b in BASES], True),
               ("SA vs.\\ random injection: SA-$X$ $-$ RI-$X$", [(f"{b}+sa", f"{b}+ri") for b in BASES], True),
               ("Between bases: $A-B$", list(combinations(["ga"] + BASES, 2)), False)]
     # signed point estimate, unsigned CI bounds, p-values below 0.001 as <0.001 (fits a landscape page at 8 pt)
@@ -284,7 +284,7 @@ def figures(tables, base_cash, outdir):
     colors = {"": "#2a78d6", "sa": "#eb6834", "ri": "#1baf7a"}
     insts = [i for i in ("vn30_2023", "hnx30_2023", "combined_2023") if i in tables]
     os.makedirs(outdir, exist_ok=True)
-    # boxes grouped by base solver: GA alone, then vanilla / SA / random injection for each MOEA
+    # boxes grouped by base solver: GA alone, then base / SA / random injection for each MOEA
     groups = [("GA", [("ga", "#b9b8b2")])] + [(NAME[b], [(b, colors[""]), (f"{b}+sa", colors["sa"]), (f"{b}+ri", colors["ri"])])
                                               for b in BASES]
     pos, centers, x = [], [], 1.0
@@ -316,7 +316,7 @@ def figures(tables, base_cash, outdir):
                 for name, val, ls in (("deposit only", base_cash[inst]["deposit"], ":"), ("equal weight (top-K)", base_cash[inst]["eqw_topk"], "--")):
                     ax.axhline(val, color="#52514e", linestyle=ls, linewidth=0.8, label=name)
         handles = [plt.Rectangle((0, 0), 1, 1, facecolor=c, edgecolor="black", linewidth=0.6) for c in ("#b9b8b2", colors[""], colors["sa"], colors["ri"])]
-        names = ["GA", "vanilla", "SA injection", "random injection"]
+        names = ["GA", "base", "SA injection", "random injection"]
         if key == "cash":
             line_h, line_l = axes[0][0].get_legend_handles_labels()
             handles, names = handles + line_h, names + line_l
