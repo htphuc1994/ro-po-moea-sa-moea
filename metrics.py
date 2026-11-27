@@ -2,7 +2,9 @@
 
 All indicators work on all-minimization objectives normalized per instance by the ideal and
 nadir points of the reference front (the non-dominated union of every final archive of that
-instance, over all methods and runs). Coordinates are clipped below at 0.
+instance, over all methods and runs). Coordinates are clipped below at 0. A final archive and
+the reference front are sets: a plan held by several population slots, or found by several
+runs, counts once (distinct()), so spacing, coverage and IGD+ do not depend on copies.
 
 * hypervolume: volume dominated by the archive inside the box [0, 1.1]^5, estimated by
   quasi-Monte Carlo with one fixed scrambled Sobol sample per instance, so every archive of an
@@ -24,6 +26,12 @@ def to_min(points):
     return np.atleast_2d(np.asarray(points, dtype=float)) * dominance.SIGNS
 
 
+def distinct(points):
+    """The distinct rows of a point set (duplicate objective vectors count once)."""
+    P = np.atleast_2d(np.asarray(points, dtype=float))
+    return np.unique(P, axis=0) if len(P) else P
+
+
 def pareto_front(M):
     """Rows of M (all-minimization) not dominated by any other row."""
     M = np.atleast_2d(M)
@@ -36,7 +44,7 @@ def pareto_front(M):
 class Normalizer:
     def __init__(self, archives):
         union = np.vstack([to_min(a) for a in archives if len(a)])
-        self.front = pareto_front(union)
+        self.front = distinct(pareto_front(union))
         self.ideal = self.front.min(axis=0)
         nadir = self.front.max(axis=0)
         self.span = np.where(nadir - self.ideal > 0, nadir - self.ideal, 1.0)

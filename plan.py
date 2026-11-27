@@ -37,8 +37,8 @@ dominance.configure(theta=initTheta, upsilon=upsilon)
 futureData = None
 SYMBOLS = []
 PRICES = VOLUMES = DIVS = LASTPRICE = None   # arrays (n, tau); DIVS in kVND per share
-M2 = T3 = T4 = None                          # co-moment tensors of daily log returns
-CRET = None                                  # centred daily log returns (T, n); exact fast path
+M2 = T3 = T4 = None                          # co-moment tensors of daily simple returns
+CRET = None                                  # centred daily simple returns (T, n); exact fast path
 EVALS = 0
 
 
@@ -198,7 +198,7 @@ def sample(parent1=None, parent2=None, anchor=None):
             elif src is not None:
                 candidates = np.flatnonzero(src.y0[t] > 0).tolist()
             else:
-                candidates = random.sample(range(n), random.randrange(min(int(cardinalityK), n)))
+                candidates = random.sample(range(n), random.randrange(min(int(cardinalityK), n) + 1))
             count = int(np.count_nonzero(held))
             for j in candidates:
                 price, vol = PRICES[j, t], VOLUMES[j, t]

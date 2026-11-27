@@ -2,9 +2,9 @@ cff-version: 1.2.0
 message: "If you use this code or data, please cite it as below."
 type: software
 title: 'Code and data for "MOEA and SA-MOEA for cash-dividend portfolios: evidence from Vietnamese equities"'
-version: 2.0.1
+version: 2.0.2
 doi: 10.5281/zenodo.24499526
-date-released: 2026-11-25
+date-released: 2026-11-28
 license: MIT
 repository-code: "https://github.com/htphuc1994/ro-po-moea-sa-moea"
 keywords:

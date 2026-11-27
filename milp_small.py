@@ -166,12 +166,25 @@ def _setup(name, months):
 
 
 def _solver_job(job):
+    """One solver run on a reduced instance. Returns the terminal cash Table 6 uses (best target-feasible
+    plan of the final set) and that reported plan, re-simulated and checked by the independent checker."""
     import solvers
     name, months, method, seed, budget = job
     _setup(name, months)
     r = solvers.run(method, seed, budget=budget, snapshot_every=None)
     feasible = [f for f in r["archive"] if f[4] >= plan.initTheta * (1 + plan.upsilon)]
-    return name, months, method, seed, max(f[4] for f in (feasible or r["archive"]))
+    cash = max(f[4] for f in (feasible or r["archive"]))
+    best, n = r["best"], len(plan.SYMBOLS)
+    y0, y1 = np.zeros((plan.tau, n), dtype=np.int64), np.zeros((plan.tau, n), dtype=np.int64)
+    for t, j, v in best["y0"]:
+        y0[t, j] = v
+    for t, j, v in best["y1"]:
+        y1[t, j] = v
+    ind = plan.simulate(y0, y1)
+    bad, _ = checker.check(ind)
+    rec = {"cash": cash, "best_cash": best["f"][4], "checker_ok": not bad,
+           "simulator_rel_diff": abs(ind.theta[-1] - best["f"][4]) / best["f"][4], "y0": best["y0"], "y1": best["y1"]}
+    return name, months, method, seed, rec
 
 
 def main(n_seeds=30, budget=3000, workers=9):
@@ -192,14 +205,15 @@ def main(n_seeds=30, budget=3000, workers=9):
     jobs = [(name, months, m, s, budget) for name, months in SMALL
             for m in ("ga", "nsga2", "spea2", "nsga3", "moead") for s in seeds]
     with Pool(workers) as pool:
-        for name, months, method, seed, cash in pool.imap_unordered(_solver_job, jobs):
+        for name, months, method, seed, run in pool.imap_unordered(_solver_job, jobs):
             rec = next(i for i in out["instances"] if i["name"] == name and i["months"] == list(months))
-            rec["solvers"].setdefault(method, {})[str(seed)] = cash
+            rec["solvers"].setdefault(method, {})[str(seed)] = run
     with open(os.path.join(ROOT, "results", "milp_small.json"), "w") as f:
         json.dump(out, f, indent=1)
     for rec in out["instances"]:
-        gaps = {m: 100 * (1 - max(v.values()) / rec["theta_star"]) for m, v in rec["solvers"].items()}
-        print(rec["name"], rec["months"], {m: f"{g:.2f}%" for m, g in gaps.items()}, file=sys.stderr)
+        gaps = {m: 100 * (1 - max(x["cash"] for x in v.values()) / rec["theta_star"]) for m, v in rec["solvers"].items()}
+        bad = sum(1 for v in rec["solvers"].values() for x in v.values() if not x["checker_ok"])
+        print(rec["name"], rec["months"], {m: f"{g:.2f}%" for m, g in gaps.items()}, f"checker failures: {bad}", file=sys.stderr)
 
 
 if __name__ == "__main__":

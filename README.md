@@ -40,11 +40,20 @@ exchanges. Each instance uses the index constituents in force on 31 December of 
 from HOSE's July review, HNX30 from HNX's October review), listed in `data/universes.json`. The
 monthly planning price of a stock is the month's highest daily closing price, the volume cap is
 the month's total matched volume, and a cash dividend is assigned to the month of its ex-date.
-The moment files hold the centred daily log returns `C` of the three years before the evaluation
-year and their covariance `M2`; the third and fourth co-moments follow exactly from `C`
-(`plan.comoments`), and the model evaluates them as sample moments of the portfolio return
-series. The scripts that downloaded and assembled the daily records are not part of this
+The moment files hold the centred daily simple returns `C` of the three years before the
+evaluation year and their covariance `M2`; the third and fourth co-moments follow exactly from
+`C` (`plan.comoments`), and the model evaluates them as sample moments of the portfolio's daily
+return. A day on which a stock did not trade has a zero return; so do the few one-session moves
+beyond 25%, which no exchange allows and which come from errors of the adjusted prices around
+corporate actions (listed in each file under `cleaned`). The scripts that downloaded and assembled the daily records are not part of this
 release.
+
+## Version 2.0.2
+
+Co-moments from daily simple returns (instead of log returns), with four impossible one-session
+price moves set to zero; quality indicators on the distinct plans of each final set; random buy
+sets of 0 to min(K, n) stocks; every small-instance plan stored and checked. All experiments were
+rerun with these changes, so every run file and `results_summary.json` differ from version 2.0.1.
 
 ## Reproducing the results
 

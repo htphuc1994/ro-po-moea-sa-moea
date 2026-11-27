@@ -65,9 +65,9 @@ def indicators(runs_inst):
         rows = []
         for seed in sorted(by_seed):
             r = by_seed[seed]
-            Z = norm(r["archive"])
+            Z = norm(metrics.distinct(r["archive"]))     # the final set: its distinct plans
             rows.append({"seed": seed, "hv": hv(Z), "igd": metrics.igd_plus(Z, front), "sp": metrics.spacing(Z),
-                         "cash": r["best"]["f"][4] / 1000.0, "size": len(r["archive"]), "evals": r["evals"],
+                         "cash": r["best"]["f"][4] / 1000.0, "size": len(Z), "evals": r["evals"],
                          "gens": r["generations"], "runtime": r["runtime"], "archive_Z": Z,
                          "sa_log": r.get("sa", {}).get("log"), "trunc": r.get("spea2_truncations"),
                          "diag": r.get("sa", {}).get("diag"), "in_final": r.get("sa", {}).get("in_final")})
@@ -215,7 +215,10 @@ def tests_table(table):
                 c = contrast(res[key], a, b)
                 f = fmt[key]
                 p = "$<$0.001" if c["p_holm"] < 0.001 else f"{c['p_holm']:.3f}"
-                cells += [f"{c['diff']:+{f}} [{c['lo']:{f}}, {c['hi']:{f}}]", p]
+                d = f"{c['diff']:+{f}}"
+                if float(d.replace(',', '')) == 0:
+                    d = d[1:]                       # a mean that rounds to zero prints unsigned
+                cells += [f"{d} [{c['lo']:{f}}, {c['hi']:{f}}]", p]
             lines.append(" & ".join(cells) + " \\\\")
     head = (f"% Friedman cash: chi2={res['cash']['chi2']:.1f}, p={res['cash']['p']:.2g}; "
             f"HV: chi2={res['hv']['chi2']:.1f}, p={res['hv']['p']:.2g}; "
@@ -380,8 +383,10 @@ def milp_table(path):
         row = [INST.get(rec["name"], rec["name"]), f"{rec['months'][0]}--{rec['months'][1]}", f"{star / 1000:,.1f}"]
         gaps = {}
         solvers = ("ga", "nsga2", "spea2", "nsga3", "moead")
+        runs = {m: list(rec["solvers"].get(m, {}).values()) for m in solvers}
+        checked = [x for v in runs.values() for x in v if isinstance(x, dict)]
         for m in solvers:
-            vals = np.array(list(rec["solvers"].get(m, {}).values()), dtype=float)
+            vals = np.array([x["cash"] if isinstance(x, dict) else x for x in runs[m]], dtype=float)
             if vals.size:
                 gaps[m] = {"best": 100 * (1 - vals.max() / star), "mean": 100 * (1 - vals.mean() / star)}
         # smallest best-of-runs gap and smallest mean gap of the row, each in bold
@@ -394,7 +399,9 @@ def milp_table(path):
             best_s, mean_s = f"{gaps[m]['best']:.2f}", f"{gaps[m]['mean']:.2f}"
             row.append(f"{bf(best_s, i in bb)} / {bf(mean_s, i in bm)}")
         lines.append(" & ".join(row) + " \\\\")
-        out.append({"instance": rec["name"], "months": rec["months"], "theta_star": star, "gaps": gaps})
+        out.append({"instance": rec["name"], "months": rec["months"], "theta_star": star, "gaps": gaps,
+                    "checker": {"plans": len(checked), "violating": sum(1 for x in checked if not x["checker_ok"]),
+                                "max_cash_rel_diff": max((x["simulator_rel_diff"] for x in checked), default=0.0)}})
     return "\n".join(lines) + "\n", out
 
 
@@ -620,16 +627,20 @@ def generality_table(tables, tests, sizes):
     for inst in [i for i in INST if i in tables]:
         table, res = tables[inst], tests[inst]
         labels = [l for l in MAIN if l in table]
-        best = {k: max(labels, key=lambda l: np.mean(col(table[l], k))) for k in ("hv", "cash")}
+        # every configuration tied with the best at the printed precision of the results tables
+        best = {k: [labels[i] for i in sorted(best_set([np.mean(col(table[l], k)) for l in labels], d, True))]
+                for k, d in (("hv", 3), ("cash", 0))}
         sig = []
         for key, tag in (("hv", "HV"), ("cash", "cash")):
             for b in BASES:
                 c = contrast(res[key], f"{b}+sa", b)
                 if c["reject"]:
                     sig.append(f"{'+' if c['diff'] > 0 else '-'}{tag} {NAME[b]}")
-        out[inst] = {"best_hv": best["hv"], "best_cash": best["cash"], "friedman_hv_p": res["hv"]["p"],
+        out[inst] = {"best_hv": best["hv"][0], "best_cash": best["cash"][0], "best_hv_ties": best["hv"],
+                     "best_cash_ties": best["cash"], "friedman_hv_p": res["hv"]["p"],
                      "friedman_cash_p": res["cash"]["p"], "sa_significant": sig}
-        lines.append(f"{INST[inst]} & {sizes[inst]} & {pretty(best['hv'])} & {pretty(best['cash'])} & "
+        lines.append(f"{INST[inst]} & {sizes[inst]} & {', '.join(pretty(l) for l in best['hv'])} & "
+                     f"{', '.join(pretty(l) for l in best['cash'])} & "
                      f"{tex_p(res['hv']['p'])} & {tex_p(res['cash']['p'])} \\\\")
     sig = {INST[i]: v["sa_significant"] for i, v in out.items() if v["sa_significant"]}
     if sig:

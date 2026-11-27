@@ -102,3 +102,29 @@ def test_evaluation_counter(instance):
     for _ in range(7):
         plan.sample()
     assert plan.EVALS == 7
+
+
+def test_random_buy_set_can_reach_the_cap(instance):
+    """The size of a random buy set is drawn from {0, ..., min(K, n)}, so it can reach the cap."""
+    saved = plan.cardinalityK
+    try:
+        plan.cardinalityK = 2
+        random.seed(23)
+        assert any(int((plan.sample().y0[0] > 0).sum()) == 2 for _ in range(200))
+    finally:
+        plan.cardinalityK = saved
+
+
+def test_cardinality_one_still_buys(instance):
+    saved = plan.cardinalityK
+    try:
+        plan.cardinalityK = 1
+        random.seed(17)
+        pop = [plan.sample() for _ in range(60)]
+        assert any(ind.y0.sum() > 0 for ind in pop)
+        for ind in pop:
+            assert not checker.check(ind)[0]
+            held = np.cumsum(ind.y0 - ind.y1, axis=0) > 0
+            assert held.sum(axis=1).max() <= 1
+    finally:
+        plan.cardinalityK = saved

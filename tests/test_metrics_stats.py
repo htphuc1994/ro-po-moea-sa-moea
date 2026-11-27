@@ -53,3 +53,14 @@ def test_holm_is_monotone_and_step_down():
 def test_bootstrap_ci_contains_mean():
     m, lo, hi = stats.bootstrap_ci(np.arange(30.0))
     assert lo < m < hi
+
+
+def test_copies_change_neither_spacing_nor_coverage_nor_the_reference_front():
+    """Final sets and the reference front are sets: duplicated objective vectors count once."""
+    rng = np.random.default_rng(3)
+    A, B = rng.random((12, 5)), rng.random((9, 5))
+    A2, B2 = np.vstack([A, A[:5], A[:2]]), np.vstack([B, B, B[:3]])
+    assert metrics.spacing(metrics.distinct(A2)) == pytest.approx(metrics.spacing(A))
+    assert metrics.coverage(metrics.distinct(A2), metrics.distinct(B2)) == pytest.approx(metrics.coverage(A, B))
+    front = metrics.Normalizer([A2, A2, B2]).front
+    assert len(np.unique(front, axis=0)) == len(front)
