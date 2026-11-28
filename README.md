@@ -50,8 +50,25 @@ checked against the daily price limit of the board the stock traded on that day;
 stock-days where the adjusted closing prices break it, the return comes from the reference price, and
 one reference price is taken from a published adjustment notice (listed in each file under
 `overrides`). A day on which a stock has no record has a zero return, unless the next record's reference
-price shows that the stock traded that day; that move is recovered (listed under `recovered`). The scripts that downloaded and assembled the daily records are not part of this
+price shows that the stock traded on the missing days. After a single missing day that reference price
+is the day's close, so the day's return is exact; after several it gives only their total move, and
+the daily path is taken from a second public price service, shifted so that the days compound to that
+total (both listed under `recovered`). The suspensions that accompany the transfer of five stocks to
+HOSE carry zero returns, and the move is recorded close to close on the first HOSE day (listed under
+`suspended`). The scripts that downloaded and assembled the daily records are not part of this
 release.
+
+## Version 2.0.4
+
+A move across several market days missing from the records is no longer put on one day: the daily
+path comes from a second public price service, shifted so that the days compound to the move given by
+the next reference price (14 gaps, 68 stock-days), and every recovered day is checked against its
+daily limit. The suspensions that accompany the transfer of five stocks to HOSE carry zero returns,
+with the move on the first HOSE day (28 stock-days, listed under `suspended`), and the HOSE listing
+dates of GVR, VIB and SHB used for the limit check are corrected. All experiments were rerun, so every
+run file and `results_summary.json` differ from version 2.0.3; the instance files and the VN30 2025
+moments are unchanged. A Holm-adjusted p-value just below 0.05 is printed with enough digits to show
+it.
 
 ## Version 2.0.3
 

@@ -149,9 +149,17 @@ def contrast(res, a, b):
     return c
 
 
+def p_text(p):
+    """Three decimals, with more when a p-value below 0.05 would print as 0.050."""
+    d = 3
+    while p < 0.05 and round(p, d) >= 0.05:
+        d += 1
+    return f"{p:.{d}f}"
+
+
 def tex_p(p):
     if p >= 0.001:
-        return f"{p:.3f}"
+        return p_text(p)
     m, e = f"{p:.1e}".split("e")
     return f"${m}\\times10^{{{int(e)}}}$"
 
@@ -214,7 +222,7 @@ def tests_table(table):
             for key in ("cash", "hv", "sp", "cs"):
                 c = contrast(res[key], a, b)
                 f = fmt[key]
-                p = "$<$0.001" if c["p_holm"] < 0.001 else f"{c['p_holm']:.3f}"
+                p = "$<$0.001" if c["p_holm"] < 0.001 else p_text(c["p_holm"])
                 d = f"{c['diff']:+{f}}"
                 if float(d.replace(',', '')) == 0:
                     d = d[1:]                       # a mean that rounds to zero prints unsigned
@@ -659,7 +667,7 @@ def generality_table(tables, tests, sizes):
                      f"{tex_p(res['hv']['p'])} & {tex_p(res['cash']['p'])} \\\\")
     sig = {INST[i]: v["sa_significant"] for i, v in out.items() if v["sa_significant"]}
     if sig:
-        print(f"warning: significant SA-vs-base contrasts {sig}; the generality caption says none", file=sys.stderr)
+        print(f"note: significant SA-vs-base contrasts {sig}; the generality caption must name them", file=sys.stderr)
     head = "% significant SA-vs-base contrasts (HV, cash; Holm): " + (
         "; ".join(f"{k}: {', '.join(v)}" for k, v in sig.items()) if sig else "none on any instance") + "\n"
     return head + "\n".join(lines) + "\n", out
