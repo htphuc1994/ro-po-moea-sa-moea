@@ -331,10 +331,19 @@ def figures(tables, base_cash, outdir):
         sa_accept_figure(tables[insts[0]], INST[insts[0]], os.path.join(outdir, "fig_sa_accept.pdf"))
 
 
+def acceptance(log, metropolis=False):
+    """Share of the energy-raising SA moves (delta > 0) accepted over a run, from the per-generation
+    log [n_up, n_up_acc, n_met, n_met_acc] of plan.SAInjector: accepted by any route, or with
+    metropolis=True among those decided by the Metropolis test."""
+    i = 2 if metropolis else 0
+    return sum(g[i + 1] for g in log) / max(1, sum(g[i] for g in log))
+
+
 def sa_accept_figure(rows, title, path):
-    """Share of worsening SA moves accepted per generation, one panel per MOEA: the mean over runs per
-    generation, and as a dashed line the run-averaged share (as in results_summary 'sa_acceptance').
-    The random-injection controls accept every move, which the caption states; they are not drawn."""
+    """Share of the energy-raising SA moves accepted (by any route) per generation, one panel per MOEA:
+    the mean over runs per generation, and as a dashed line the run-averaged share (as in
+    results_summary 'sa_acceptance'). The random-injection controls accept every move, which the
+    caption states; they are not drawn."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -346,8 +355,8 @@ def sa_accept_figure(rows, title, path):
             continue
         g = min(len(x) for x in logs)
         with np.errstate(invalid="ignore"):
-            rate = np.nanmean([[a / w if w else np.nan for w, a in x[:g]] for x in logs], axis=0)
-        mean = float(np.mean([sum(a for _, a in x) / max(1, sum(w for w, _ in x)) for x in logs]))
+            rate = np.nanmean([[row[1] / row[0] if row[0] else np.nan for row in x[:g]] for x in logs], axis=0)
+        mean = float(np.mean([acceptance(x) for x in logs]))
         series[b] = (rate, mean)
     top = max(0.4, np.ceil(10 * max(np.nanmax(r) for r, _ in series.values())) / 10)
     fig, axes = plt.subplots(2, 2, figsize=(4.8, 2.5), sharey=True)
@@ -582,14 +591,20 @@ def chi0_table(tables):
         return "", {}
     acc = {}
     for c, suffix in ((CHI0[0], f"-chi{CHI0[0]:g}"), (0.5, ""), (CHI0[1], f"-chi{CHI0[1]:g}")):
-        vals = {f"{inst}|{b}": float(np.mean([sum(a for _, a in r["sa_log"]) / max(1, sum(w for w, _ in r["sa_log"]))
-                                              for r in tables[inst][f"{b}+sa{suffix}"] if r["sa_log"]]))
-                for inst in out for b in BASES}
-        acc[f"{c:g}"] = {"range": [min(vals.values()), max(vals.values())], "values": vals}
+        entry = {}
+        for key, met in (("", False), ("_metropolis", True)):
+            vals = {f"{inst}|{b}": float(np.mean([acceptance(r["sa_log"], met)
+                                                  for r in tables[inst][f"{b}+sa{suffix}"] if r["sa_log"]]))
+                    for inst in out for b in BASES}
+            entry["range" + key] = [min(vals.values()), max(vals.values())]
+            entry["values" + key] = vals
+        acc[f"{c:g}"] = entry
     sig = sorted(f"{INST.get(i, i)} {k} {p}" for i, r in out.items() for k, d in r.items() for p, c in d.items() if c["reject"])
     head = "% significant contrasts (Holm within the 16 of each instance and indicator): " + ("; ".join(sig) if sig else "none") + "\n"
-    head += "% worsening moves accepted per SA phase (range over instances and bases): " + "; ".join(
+    head += "% energy-raising SA moves accepted over a run, by any route (range over instances and bases): " + "; ".join(
         f"chi0={c}: {100 * a['range'][0]:.0f}-{100 * a['range'][1]:.0f}%" for c, a in acc.items()) + "\n"
+    head += "% of them decided by the Metropolis test, share passed: " + "; ".join(
+        f"chi0={c}: {100 * a['range_metropolis'][0]:.0f}-{100 * a['range_metropolis'][1]:.0f}%" for c, a in acc.items()) + "\n"
     return head + "\n".join(lines[:-1]) + "\n", {"contrasts": out, "acceptance": acc}
 
 
@@ -699,9 +714,10 @@ def main():
             "spea2_truncations_per_run": {l: [float(np.mean(col(table[l], "trunc"))), float(np.min(col(table[l], "trunc"))),
                                               float(np.max(col(table[l], "trunc"))), float(np.mean(col(table[l], "gens")))]
                                           for l in table if l.startswith("spea2") and all(r["trunc"] is not None for r in table[l])},
-            "sa_acceptance": {l: float(np.mean([sum(a for _, a in r["sa_log"]) / max(1, sum(w for w, _ in r["sa_log"]))
-                                                for r in table[l] if r["sa_log"]]))
+            "sa_acceptance": {l: float(np.mean([acceptance(r["sa_log"]) for r in table[l] if r["sa_log"]]))
                               for l in table if l.endswith("+sa")},
+            "sa_acceptance_metropolis": {l: float(np.mean([acceptance(r["sa_log"], True) for r in table[l] if r["sa_log"]]))
+                                         for l in table if l.endswith("+sa")},
             "checker": checks,
         }
     tex, milp = milp_table(os.path.join(args.results, "milp_small.json"))

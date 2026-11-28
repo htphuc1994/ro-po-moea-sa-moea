@@ -331,14 +331,20 @@ class SAInjector:
     generation-fixed anchor, accepts by constraint-domination, improvement or the Metropolis test,
     restarts the temperature at T0 and cools it geometrically to SA_END_RATIO * T0.
     With accept_all=True it is the random-injection control: same neighbours, every move accepted.
-    start_accept is the probability chi_0 with which an average worsening move is accepted at T0."""
+    start_accept is the probability chi_0 with which an average worsening move is accepted at T0.
+
+    The log holds one row per generation, [n_up, n_up_acc, n_met, n_met_acc]: n_up counts the
+    candidates that raise the energy (delta > 0) and n_up_acc those of them accepted by any route
+    (constraint-domination, the Metropolis test, or every move in the control); n_met counts the
+    energy-raising candidates decided by the Metropolis test and n_met_acc those that pass it.
+    The counters only observe the decisions; they draw no random numbers."""
 
     def __init__(self, anchor, accept_all=False, start_accept=SA_START_ACCEPT):
         self.anchor = anchor
         self.accept_all = accept_all
         self.start_accept = start_accept
         self.T0 = None
-        self.log = []   # per generation: [worsening moves, accepted worsening moves]
+        self.log = []   # per generation: [n_up, n_up_acc, n_met, n_met_acc] (see the class docstring)
 
     def calibrate(self, lo, hi, probes=20):
         e0 = energy(self.anchor.f, lo, hi)
@@ -353,26 +359,29 @@ class SAInjector:
         ratio = SA_END_RATIO ** (1.0 / max(SA_STEPS - 1, 1))
         best = self.anchor
         e_best = energy(best.f, lo, hi)
-        n_worse = n_acc = 0
+        n_up = n_up_acc = n_met = n_met_acc = 0
         T = self.T0
         for _ in range(SA_STEPS):
             cand = sample(anchor=self.anchor)
             e = energy(cand.f, lo, hi)
             delta = e - e_best
+            tested = False
             if self.accept_all:
                 accept = True
-                if delta > 0:
-                    n_worse += 1
-                    n_acc += 1
             elif dominance.dominates(cand.f, best.f) or delta < 0:
                 accept = True
             else:
-                n_worse += 1
+                tested = True
                 accept = random.random() < math.exp(-delta / T)
-                n_acc += accept
+            if delta > 0:
+                n_up += 1
+                n_up_acc += int(accept)
+                if tested:
+                    n_met += 1
+                    n_met_acc += int(accept)
             if accept:
                 best, e_best = cand, e
             T *= ratio
         self.anchor = best
-        self.log.append([n_worse, n_acc])
+        self.log.append([n_up, n_up_acc, n_met, n_met_acc])
         return best

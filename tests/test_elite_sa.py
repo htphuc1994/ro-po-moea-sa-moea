@@ -43,6 +43,18 @@ def test_runs_are_reproducible_and_diagnostics_consistent(instance, mode):
     assert all(d in (0, 1) for row in diag for d in row)
 
 
+@pytest.mark.parametrize("mode", ["sa", "ri", "sae", "rie"])
+def test_acceptance_counters(instance, mode):
+    """Per generation [n_up, n_up_acc, n_met, n_met_acc]: an energy-raising move that skips the Metropolis
+    test is accepted (by constraint-domination, or as every move in the random-injection control)."""
+    a = solvers.run("moead", 1234, budget=1500, sa_mode=mode, snapshot_every=None)
+    for up, up_acc, met, met_acc in a["sa"]["log"]:
+        assert 0 <= met_acc <= met <= up <= plan.SA_STEPS and 0 <= up_acc <= up
+        assert up_acc - met_acc == up - met
+        if mode in ("ri", "rie"):
+            assert met == 0 and up_acc == up
+
+
 def test_elite_mode_changes_the_search(instance):
     sa = solvers.run("nsga2", 1234, budget=1500, sa_mode="sa", snapshot_every=None)
     sae = solvers.run("nsga2", 1234, budget=1500, sa_mode="sae", snapshot_every=None)

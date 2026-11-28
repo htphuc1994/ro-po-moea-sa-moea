@@ -43,10 +43,24 @@ the month's total matched volume, and a cash dividend is assigned to the month o
 The moment files hold the centred daily simple returns `C` of the three years before the
 evaluation year and their covariance `M2`; the third and fourth co-moments follow exactly from
 `C` (`plan.comoments`), and the model evaluates them as sample moments of the portfolio's daily
-return. A day on which a stock did not trade has a zero return; so do the few one-session moves
-beyond 25%, which no exchange allows and which come from errors of the adjusted prices around
-corporate actions (listed in each file under `cleaned`). The scripts that downloaded and assembled the daily records are not part of this
+return. The daily return of a stock is its close-to-close return, adjusted for a dividend or share
+issue that goes ex on that day: the adjustment is the exchange's reference price where the HNX record
+carries it, and otherwise the factor implied by the published adjusted closing prices. Every return was
+checked against the daily price limit of the board the stock traded on that day; on the eight
+stock-days where the adjusted closing prices break it, the return comes from the reference price, and
+one reference price is taken from a published adjustment notice (listed in each file under
+`overrides`). A day on which a stock has no record has a zero return, unless the next record's reference
+price shows that the stock traded that day; that move is recovered (listed under `recovered`). The scripts that downloaded and assembled the daily records are not part of this
 release.
+
+## Version 2.0.3
+
+Daily returns adjusted for dividends and share issues from the exchange's reference prices where the
+records carry them, every return checked against the daily price limit of its board (no return is set
+to zero), and market days missing from the records recovered; the SA log counts every energy-raising
+move and those of them decided by the Metropolis test (`sa.log` holds `[n_up, n_up_acc, n_met,
+n_met_acc]` per generation). All experiments were rerun, so every run file and
+`results_summary.json` differ from version 2.0.2.
 
 ## Version 2.0.2
 
